@@ -107,16 +107,16 @@ h1:hover {
 }
 
 h2 {
-    font-size: 20px;
-    color: #F44336;
-    margin: 16px 0;
-    letter-spacing: 1px;
-    border-bottom: 2px solid #F44336;
-    /* Add a 2px solid line decoration with your desired color */
-    padding-bottom: 5px;
-    /* Adjust the padding as needed to control the distance between the text and the line */
     display: inline-block;
-    /* Prevent the border from spanning the entire width */
+    font-size: 24px;
+    font-weight: 500;
+    color: #3659f4;
+    margin: 16px 0;
+    padding: 12px 24px;
+    letter-spacing: 1px;
+    border: 2px solid #2a44b8;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
 }
 
 .head {
