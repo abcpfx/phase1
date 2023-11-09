@@ -7,17 +7,6 @@ body {
     background-color: #f5f5f5;
 }
 
-.boxcontainer {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    background-color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    border-radius: 5px;
-    margin: 10px;
-    padding: 20px;
-}
-
 h1,
 h2,
 h3 {
@@ -26,10 +15,6 @@ h3 {
 
 /* Media Queries */
 @media (max-width: 768px) {
-    .boxcontainer {
-        padding: 10px;
-        margin: 5px;
-    }
 
     .fooditems {
         display: flex;
@@ -55,7 +40,6 @@ h3 {
 
 @media (min-width: 769px) and (max-width: 1024px) {
 
-    .boxcontainer,
     .fooditems {
         padding: 10px;
         margin: 5px;
@@ -79,10 +63,6 @@ h3 {
 }
 
 @media (min-width: 1025px) {
-    .boxcontainer {
-        margin: 20px;
-        padding: 20px;
-    }
 
     .fooditems {
         display: flex;
@@ -145,41 +125,17 @@ h2 {
     text-align: center;
 }
 
-.textdes {
-    flex: 1;
-    align-items: center;
-    padding: 15px;
+.rsimg {
+    max-width: 90%;
+    height: auto;
+    transform: translateY(40px); /* Initial position below the viewport */
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease; /* Add a transition for smooth animation */
 }
 
-.textdes p {
-    font-size: 1em;
-    line-height: 1.5;
-}
-
-.textbox {
-    flex: 1;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    display: flex;
-    max-height: fit-content;
-    max-width: fit-content;
-    align-items: center;
-    background-color: #f2f2f2;
-    padding: 15px;
-}
-
-.textbox h3 {
-    font-size: 1.2em;
-    color: #1968b3;
-    font-weight: 700;
-}
-
-.textbox p {
-    font-size: 1em;
-    color: #1968b3;
-    font-weight: 400;
-    margin-top: 5px;
+.rsimg.loaded {
+    transform: translateY(0); /* Move to the original position */
+    opacity: 1; /* Set opacity to 1 when the image is loaded */
 }
 
 .material-icons {
