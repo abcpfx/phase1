@@ -1,0 +1,852 @@
+/* Default styles for all screen sizes */
+/* Global Styles */
+body {
+    font-family: 'Kanit', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.boxcontainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0 auto;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .boxcontainer {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .fooditems {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .itemcheckbox {
+        width: 25%;
+        padding: 5px;
+    }
+
+    .info {
+        font-size: 14px;
+    }
+
+    .addmealbuttons {
+        font-family: 'Kanit', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .boxcontainer,
+    .fooditems {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .itemcheckbox {
+        width: 30%;
+        padding: 5px;
+    }
+
+    .info {
+        font-size: 14px;
+    }
+
+    .addmealbuttons {
+        font-family: 'Kanit', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (min-width: 1025px) {
+    .boxcontainer {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .fooditems {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .itemcheckbox {
+        width: 25%;
+        padding: 10px;
+    }
+}
+
+/* Other Styles */
+* {
+    font-family: 'Kanit', sans-serif;
+    --transition: 0.1s;
+}
+
+h1,
+h2 {
+    text-align: center;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s ease-in-out;
+}
+
+h1 {
+    font-size: 24px;
+    color: #2196F3;
+    margin: 20px 0;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #2196F3;
+    /* Add a 2px solid line decoration with your desired color */
+    padding-bottom: 5px;
+    /* Adjust the padding as needed to control the distance between the text and the line */
+    display: inline-block;
+    /* Prevent the border from spanning the entire width */
+}
+
+h1:hover {
+    color: #1976D2;
+}
+
+h2 {
+    font-size: 20px;
+    color: #F44336;
+    margin: 16px 0;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #F44336;
+    /* Add a 2px solid line decoration with your desired color */
+    padding-bottom: 5px;
+    /* Adjust the padding as needed to control the distance between the text and the line */
+    display: inline-block;
+    /* Prevent the border from spanning the entire width */
+}
+
+.head {
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+.textdes {
+    flex: 1;
+    align-items: center;
+    padding: 15px;
+}
+
+.textdes p {
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.textbox {
+    flex: 1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    max-height: fit-content;
+    max-width: fit-content;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 15px;
+}
+
+.textbox h3 {
+    font-size: 1.2em;
+    color: #1968b3;
+    font-weight: 700;
+}
+
+.textbox p {
+    font-size: 1em;
+    color: #1968b3;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    vertical-align: middle;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+/* Container for meal categories */
+.mealresult {
+    display: flex;
+    overflow-x: auto;
+    /* Hide the horizontal scrollbar */
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    scroll-snap-type: x mandatory;
+    /* Enable snap-scrolling */
+    white-space: nowrap;
+}
+
+/* Individual meal category */
+.meal-category {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    min-width: 100vw;
+    /* Adjust the width as needed */
+    scroll-snap-align: center;
+    /* Center the scrolling */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scroll-snap-type: x mandatory;
+    /* Enable snap-scrolling */
+}
+
+.meal-category h3 {
+    border-bottom: 2px solid #8f8f8f;
+    /* Adjust the color and width as needed */
+    padding-bottom: 10px;
+    /* Adjust the padding as needed */
+    display: inline;
+}
+
+/* Container for items with vertical scrolling */
+#bicontainer,
+#lncontainer,
+#dncontainer {
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Styles for meal categories */
+#breakfastResult,
+#lunchResult,
+#dinnerResult {
+    flex: 1;
+    min-width: 350px;
+    padding: 8px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Styles for category headings */
+#breakfastResult h3,
+#lunchResult h3,
+#dinnerResult h3 {
+    text-align: center;
+    font-size: 20px;
+    margin: 8px;
+}
+
+/* Styles for item lists within categories */
+#breakfastItems,
+#lunchItems,
+#dinnerItems {
+    font-size: 16px;
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Styles for list items within item lists */
+#breakfastItems li,
+#lunchItems li,
+#dinnerItems li {
+    width: 100%;
+    /* Fixed width to ensure alignment */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px 0;
+}
+
+/* Add CSS styles for the delete button */
+button.delete-button {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    width: 40px;
+    height: 30px;
+    background-color: #f44336;
+    /* Red background color */
+    color: #fff;
+    /* White text color */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 4px;
+}
+
+button.delete-button:hover {
+    background-color: #d32f2f;
+    /* Darker red on hover */
+}
+
+/* Styles for reset buttons */
+.reset-button {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 3px rgba(0, 0, 0, 0.24);
+    font-family: 'Kanit', sans-serif;
+    width: 120px;
+    height: 36px;
+    background-color: #B00020;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 8px auto;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.reset-button:hover {
+    background-color: #ff0000;
+}
+
+.reset-button:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+/* Image styles */
+#lunchItems img,
+#breakfastItems img,
+#dinnerItems img {
+    max-width: 120px;
+    max-height: 60px;
+    border-radius: 4px;
+}
+
+.itemcheckbox {
+    flex-direction: row;
+    margin: 2px;
+    width: 90px;
+    height: 110px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+    background: rgb(240, 240, 240);
+    transition: transform var(--transition);
+}
+
+.itemcheckbox:active {
+    transform: scale(0.8);
+}
+
+.fooditems {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    /* Set the width as needed */
+    max-height: 300px;
+    /* Set the height as needed */
+    border: none;
+    /* Optional: Add a border for styling */
+    overflow: auto;
+    /* Enable vertical and/or horizontal scrolling as needed */
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked+label {
+    opacity: 1;
+    box-shadow: 0 0 0 3px var(--background);
+}
+
+input[type="checkbox"]:checked+label img {
+    -webkit-filter: none;
+    /* Safari 6.0 - 9.0 */
+    filter: none;
+}
+
+input[type="checkbox"]:checked+label .cover-checkbox {
+    opacity: 1;
+    transform: scale(1);
+}
+
+input[type="checkbox"]:checked+label .cover-checkbox svg {
+    stroke-dashoffset: 0;
+}
+
+label {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    opacity: 0.75;
+}
+
+label img {
+    width: 100%;
+    height: 65%;
+    object-fit: cover;
+    -webkit-filter: grayscale(0%);
+    /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%);
+}
+
+label .cover-checkbox {
+    position: absolute;
+    right: 28px;
+    top: 15px;
+    z-index: 1;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--box-shadow);
+    border: 5px solid #5ec15d;
+    transition: transform var(--transition), opacity calc(var(--transition) * 1.1) linear;
+    opacity: 0;
+    transform: scale(0);
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+}
+
+label .cover-checkbox svg {
+    width: 15px;
+    height: 10px;
+    display: inline-block;
+    vertical-align: center;
+    fill: none;
+    margin: 0px 0 0 5px;
+    stroke: #5ec15d;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 15px;
+    transition: stroke-dashoffset 0.2s ease var(--transition);
+    stroke-dashoffset: 15px;
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+}
+
+label .info {
+    text-align: center;
+    margin-top: 2%;
+    font-weight: 600;
+    font-size: 70%;
+    white-space: nowrap;
+    /* Prevent text from wrapping */
+    text-overflow: ellipsis;
+    /* Show ellipsis (...) for overflowing text */
+    overflow: hidden;
+    /* Hide text that overflows */
+}
+
+/* Style for the search and filter container */
+.searchandfilter {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+/* Style for the search input */
+#foodSearch {
+    margin-top: 10px;
+    font-family: Kanit, sans-serif;
+    width: auto;
+    height: fit-content;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    padding: 5px;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+#foodSearch:hover,
+#foodSearch:focus {
+    border-color: #1976D2;
+    /* Material Design blue on hover */
+    box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
+    /* Material Design blue shadow on hover */
+    color: #1976D2;
+    /* Material Design blue text color on hover */
+}
+
+/* Style for the filter dropdown */
+#foodFilter {
+    margin-top: 10px;
+    margin-right: 10px;
+    font-family: Kanit, sans-serif;
+    width: auto;
+    height: 35px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Style when the dropdown is focused */
+#foodFilter:focus {
+    border-color: #1976D2;
+    /* Material Design blue on focus */
+    box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
+    /* Material Design blue shadow on focus */
+}
+
+/* Style for the options within the dropdown */
+#foodFilter option {
+    font-family: Kanit, sans-serif;
+    font-size: 16px;
+    padding: 5px;
+    background-color: #fff;
+    color: #333;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+#foodFilter option:hover {
+    background-color: #1976D2;
+    /* Material Design blue on option hover */
+    color: #fff;
+    /* White text color on option hover */
+}
+
+.addmealbuttons {
+    font-family: 'Kanit', sans-serif;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Style for the "Add to Breakfast" button */
+#addBreakfast {
+    overflow: hidden;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+    font-family: 'Kanit', sans-serif;
+    width: 25%;
+    height: 40px;
+    border: none;
+    background-image: linear-gradient(to right, #41a783 0%, #93F9B9 51%, #1a835e 100%);
+    margin: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.3s ease;
+    /* Adjust the speed here */
+}
+
+/* Hover effect for the "Add to Breakfast" button */
+#addBreakfast:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Clicked effect for the "Add to Breakfast" button */
+#addBreakfast:active {
+    opacity: 0.7;
+    transform: scale(0.8);
+}
+
+/* Style for the "Add to Lunch" button */
+#addLunch {
+    overflow: hidden;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+    font-family: 'Kanit', sans-serif;
+    width: 25%;
+    height: 40px;
+    border: none;
+    background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%);
+    margin: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.3s ease;
+    /* Adjust the speed here */
+}
+
+/* Hover effect for the "Add to Lunch" button */
+#addLunch:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Clicked effect for the "Add to Lunch" button */
+#addLunch:active {
+    opacity: 0.7;
+    transform: scale(0.8);
+}
+
+/* Style for the "Add to Dinner" button */
+#addDinner {
+    overflow: hidden;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+    font-family: 'Kanit', sans-serif;
+    width: 25%;
+    height: 40px;
+    border: none;
+    background-image: linear-gradient(to right, #FF512F 0%, #F09819 51%, #FF512F 100%);
+    margin: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.3s ease;
+    /* Adjust the speed here */
+}
+
+/* Hover effect for the "Add to Dinner" button */
+#addDinner:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Clicked effect for the "Add to Dinner" button */
+#addDinner:active {
+    opacity: 0.7;
+    transform: scale(0.8);
+}
+
+/* Updated style for totalCaloriesResult with Material Design look */
+.totalresult {
+    margin: 40px auto;
+    font-size: 24px;
+    display: flex;
+    height: auto;
+    max-width: 50%;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    /* Center items vertically and horizontally */
+    text-align: center;
+    /* Center-align text */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #bebebe;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+    /* Material Design blue shadow */
+    color: white;
+    /* Text color */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    /* Text shadow for added visual effect */
+}
+
+/* Updated style for the message div inside totalCaloriesResult */
+#totalCaloriesMessage {
+    width: 50%;
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #90cdff;
+    /* Material Design blue background color */
+    color: white;
+    /* Text color for the message */
+}
+
+/* Hover effect for totalCaloriesResult (Optional) */
+.totalresult:hover {
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+    /* Slightly stronger shadow on hover */
+}
+
+/* Style for "You eat too little" message */
+#totalCaloriesMessage.too-little {
+    background-color: #E91E63;
+    /* Material Design pink */
+    color: #FFF;
+}
+
+/* Style for "You can eat a bit more" message */
+#totalCaloriesMessage.can-eat-more {
+    background-color: #4CAF50;
+    /* Material Design green */
+    color: #FFF;
+}
+
+/* Style for "Just about right" message */
+#totalCaloriesMessage.about-right {
+    background-color: #2196F3;
+    /* Material Design blue */
+    color: #FFF;
+}
+
+/* Style for "Warning" message */
+#totalCaloriesMessage.warning {
+    background-color: #FF5722;
+    /* Material Design deep orange */
+    color: #FFF;
+}
+
+/* Hover effect for messages (Optional) */
+#totalCaloriesMessage:hover {
+    opacity: 0.9;
+}
+
+.resetbutton {
+    margin: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.confetti-button {
+    display: inline-block;
+    font-size: 1em;
+    padding: 1em 2em;
+    margin-top: 2%;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #00a6ff;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+    box-shadow: 0 2px 25px #4ac0ff;
+  }
+  .confetti-button:focus { outline: 0; }
+  
+  .confetti-button:before, .confetti-button:after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 140%;
+    height: 100%;
+    left: -20%;
+    z-index: -1000;
+    transition: all ease-in-out 0.5s;
+    background-repeat: no-repeat;
+  }
+  .confetti-button:before {
+    display: none;
+    top: -75%;
+    background-image: radial-gradient(circle, #00a6ff 20%, transparent 20%),
+     radial-gradient(circle, transparent 20%, #00a6ff 20%, transparent 30%),
+     radial-gradient(circle, #00a6ff 20%, transparent 20%), 
+     radial-gradient(circle, #00a6ff 20%, transparent 20%), 
+     radial-gradient(circle, transparent 10%, #00a6ff 15%, transparent 20%), 
+     radial-gradient(circle, #00a6ff 20%, transparent 20%), 
+     radial-gradient(circle, #00a6ff 20%, transparent 20%),
+     radial-gradient(circle, #00a6ff 20%, transparent 20%),
+     radial-gradient(circle, #00a6ff 20%, transparent 20%);
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+     10% 10%, 18% 18%;
+  }
+   .confetti-button:after {
+    display: none;
+    bottom: -75%;
+    background-image: radial-gradient(circle, #00a6ff 20%, transparent 20%),
+     radial-gradient(circle, #00a6ff 20%, transparent 20%), 
+     radial-gradient(circle, transparent 10%, #00a6ff 15%, transparent 20%), 
+     radial-gradient(circle, #00a6ff 20%, transparent 20%),
+     radial-gradient(circle, #00a6ff 20%, transparent 20%),
+     radial-gradient(circle, #00a6ff 20%, transparent 20%),
+     radial-gradient(circle, #00a6ff 20%, transparent 20%);
+    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+  }
+  
+  .confetti-button:active {
+    transform: scale(0.9);
+    background-color: #015f91;
+    box-shadow: 0 2px 25px rgba(0, 81, 255, 0.2);
+  }
+  
+  .confetti-button.animate:before {
+    display: block;
+    animation: topBubbles ease-in-out 0.75s forwards;
+  }
+  
+  .confetti-button.animate:after {
+    display: block;
+    animation: bottomBubbles ease-in-out 0.75s forwards;
+  }
+   @keyframes
+  topBubbles {  0% {
+   background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 
+   55% 90%, 70% 90%;
+  }
+   50% {
+   background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 
+   65% 20%, 90% 30%;
+  }
+   100% {
+   background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%,
+    65% 10%, 90% 20%;
+   background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+  }
+  @keyframes
+  bottomBubbles {  0% {
+   background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+  }
+   50% {
+   background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+  }
+   100% {
+   background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+   background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+  }
