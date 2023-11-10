@@ -15,6 +15,10 @@ h3 {
 
 /* Media Queries */
 @media (max-width: 768px) {
+    
+    .rsimg {
+        max-width: 90%;
+    }
 
     .fooditems {
         display: flex;
@@ -39,6 +43,10 @@ h3 {
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
+    
+    .rsimg {
+        max-width: 90%;
+    }
 
     .fooditems {
         padding: 10px;
@@ -63,6 +71,10 @@ h3 {
 }
 
 @media (min-width: 1025px) {
+
+    .rsimg {
+        max-width: 90%;
+    }
 
     .fooditems {
         display: flex;
