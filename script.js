@@ -1,3 +1,15 @@
+document.addEventListener("DOMContentLoaded", function() {
+    // Hide the loading container after a 2-second delay when the DOM is ready
+    setTimeout(function() {
+        document.getElementById("loading-container").style.display = "none";
+    }, 3000);
+});
+
+window.addEventListener("load", function() {
+    // Hide the loading container when the page has fully loaded
+    document.getElementById("loading-container").style.display = "none";
+});
+
 const foodItems = document.querySelectorAll("input[name='foodItem']");
 const breakfastResult = document.getElementById("breakfastResult");
 const lunchResult = document.getElementById("lunchResult");
@@ -450,6 +462,7 @@ function btnanimate() {
         }, 700);
     };
 
+    
     var classname = document.getElementsByClassName("confetti-button");
 
     for (var i = 0; i < classname.length; i++) {
