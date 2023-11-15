@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Hide the loading container after a 2-second delay when the DOM is ready
+    // Hide the loading container after a 3-second delay when the DOM is ready
     setTimeout(function() {
         document.getElementById("loading-container").style.display = "none";
     }, 3000);
