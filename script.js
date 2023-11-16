@@ -141,7 +141,14 @@ function updateSelection() {
 
     // Create a span element for the total calories count
     const totalCaloriesSpan = document.createElement("span");
-    totalCaloriesSpan.style.color = getColorForValue(totalCalories, 0, 2000);
+    const color = getColorForValue(totalCalories);
+
+    totalCaloriesSpan.textContent = totalCalories; // Assuming totalCalories is a numeric value
+
+    // Set text color and border color
+    totalCaloriesSpan.style.color = color;
+    totalCaloriesResult.style.borderColor = color;
+
     totalCaloriesResult.innerHTML = `รวมวันนี้ทานไป `;
     totalCaloriesResult.appendChild(totalCaloriesSpan);
 
@@ -153,41 +160,6 @@ function updateSelection() {
     // Animate the total calorie count for all meals
     animateCounting(totalCaloriesSpan, totalCalories);
 
-    // Define the messages based on total calories range
-    let message = '';
-    if (totalCalories < 1000) {
-        message = 'กินน้อยไปแล้วนะ';
-    } else if (totalCalories >= 1000 && totalCalories <= 1800) {
-        message = 'กินอีกหน่อยก็ดีนะ';
-    } else if (totalCalories >= 1801 && totalCalories <= 2000) {
-        message = 'กินเท่านี้ก็เพียงพอแล้ว';
-    } else if (totalCalories > 2000) {
-        message = 'กินเยอะไปแล้วนะ';
-    }
-
-    // Create a div for the message, but don't initially display it
-    const messageDiv = document.createElement('div');
-    messageDiv.textContent = message;
-    messageDiv.id = 'totalCaloriesMessage';
-
-    // Add a class to the message based on total calories range
-    if (totalCalories < 1000) {
-        messageDiv.classList.add('too-little');
-    } else if (totalCalories >= 1000 && totalCalories <= 1800) {
-        messageDiv.classList.add('can-eat-more');
-    } else if (totalCalories >= 1801 && totalCalories <= 2000) {
-        messageDiv.classList.add('about-right');
-    } else if (totalCalories > 2000) {
-        messageDiv.classList.add('warning');
-    }
-
-    messageDiv.style.display = 'none'; // Initially hide the message
-    totalCaloriesResult.appendChild(messageDiv);
-
-    // Display the message if it's not empty
-    if (message) {
-        messageDiv.style.display = 'block';
-    }
 }
 
 function updateMealtimeResult(resultElement, items, mealTime) {
@@ -254,41 +226,56 @@ function animateTotalCaloriesForMealtime(totalCaloriesElement, mealItems) {
 // Include your getColorForValue and animateCounting functions here if they are defined elsewhere in your code.
 function animateCounting(element, targetValue) {
     const duration = 1000; // Animation duration in milliseconds
-    const frames = 30; // Number of frames
+    const frames = 15; // Number of frames
     const initialFontSize = 18; // Starting font size
     const maxFontSize = 26; // Maximum font size
     const fontSizeIncrement = (maxFontSize - initialFontSize) / frames;
+    
+    // Cubic ease-out easing function
+    const easing = t => 1 - Math.pow(1 - t, 3);
+    
     const increment = targetValue / (duration / frames);
     let currentValue = 0;
     let currentFontSize = initialFontSize;
 
     const updateValue = () => {
         if (currentValue < targetValue) {
+            const easedProgress = easing(currentValue / targetValue);
             element.textContent = Math.round(currentValue);
-            element.style.fontSize = `${currentFontSize}px`; // Update font size
+            element.style.fontSize = `${initialFontSize + easedProgress * (maxFontSize - initialFontSize)}px`;
             currentValue += increment;
-            currentFontSize += fontSizeIncrement; // Increment font size
             requestAnimationFrame(updateValue);
         } else {
             element.textContent = targetValue;
-            element.style.fontSize = `${maxFontSize}px`; // Set to maximum font size
+            element.style.fontSize = `${maxFontSize}px`;
         }
     };
 
     updateValue();
 }
 
-function getColorForValue(value, minValue, maxValue) {
-    // Define the color scale (green to red)
-    const minColor = [29, 151, 31]; // Green
-    const maxColor = [255, 0, 0]; // Red
+function getColorForValue(value) {
+    let color;
 
-    // Calculate the color values
-    const r = Math.round(minColor[0] + (maxColor[0] - minColor[0]) * ((value - minValue) / (maxValue - minValue)));
-    const g = Math.round(minColor[1] + (maxColor[1] - minColor[1]) * ((value - minValue) / (maxValue - minValue)));
-    const b = Math.round(minColor[2] + (maxColor[2] - minColor[2]) * ((value - minValue) / (maxValue - minValue)));
+    switch (true) {
+        case value <= 1000:
+            color = 'red';
+            break;
+        case value >= 1001 && value <= 1700:
+            color = 'orange';
+            break;
+        case value >= 1701 && value <= 2000:
+            color = 'green';
+            break;
+        case value > 2000:
+            color = 'red';
+            break;
+        default:
+            color = 'gray'; // Default color for undefined cases
+            break;
+    }
 
-    return `rgb(${r},${g},${b})`;
+    return color;
 }
 
 // Initialize the selection when the page loads

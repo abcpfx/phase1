@@ -674,72 +674,21 @@ label .info {
     /* Center items vertically and horizontally */
     text-align: center;
     /* Center-align text */
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #bebebe;
+    padding: 15px;
+    border-radius: 30px;
+    border: 4px solid;
+    border-color: #ffffff;
+    background-color: #acacac;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
     /* Material Design blue shadow */
     color: white;
     /* Text color */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
     /* Text shadow for added visual effect */
 }
 
-/* Updated style for the message div inside totalCaloriesResult */
-#totalCaloriesMessage {
-    width: 50%;
-    font-family: 'Kanit', sans-serif;
-    text-align: center;
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #90cdff;
-    /* Material Design blue background color */
-    color: white;
-    /* Text color for the message */
-}
-
-/* Hover effect for totalCaloriesResult (Optional) */
-.totalresult:hover {
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
-    /* Slightly stronger shadow on hover */
-}
-
-/* Style for "You eat too little" message */
-#totalCaloriesMessage.too-little {
-    background-color: #E91E63;
-    /* Material Design pink */
-    color: #FFF;
-}
-
-/* Style for "You can eat a bit more" message */
-#totalCaloriesMessage.can-eat-more {
-    background-color: #4CAF50;
-    /* Material Design green */
-    color: #FFF;
-}
-
-/* Style for "Just about right" message */
-#totalCaloriesMessage.about-right {
-    background-color: #2196F3;
-    /* Material Design blue */
-    color: #FFF;
-}
-
-/* Style for "Warning" message */
-#totalCaloriesMessage.warning {
-    background-color: #FF5722;
-    /* Material Design deep orange */
-    color: #FFF;
-}
-
-/* Hover effect for messages (Optional) */
-#totalCaloriesMessage:hover {
-    opacity: 0.9;
-}
-
 .resetbutton {
-    margin: 30px;
+    margin: 10px;
     display: flex;
     align-items: center;
     flex-direction: row;
