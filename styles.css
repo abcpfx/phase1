@@ -528,6 +528,7 @@ label .info {
 
 /* Style for the filter dropdown */
 #foodFilter {
+    text-align: center;
     margin-top: 10px;
     margin-right: 10px;
     font-family: Kanit, sans-serif;
