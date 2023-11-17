@@ -148,13 +148,20 @@ h2 {
     display: inline-block;
     font-size: 24px;
     font-weight: 500;
-    color: #3659f4;
+    color: #fff; /* Text color */
     margin: 16px 0;
     padding: 12px 24px;
     letter-spacing: 1px;
+    background-color: #3659f4; /* Background color */
     border: 2px solid #2a44b8;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-    border-radius: 4px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Adjusted box shadow */
+    border-radius: 8px; /* Slightly reduced border radius */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+}
+
+h2:hover {
+    background-color: #2a44b8; /* Darker background on hover */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* Adjusted box shadow on hover */
 }
 
 .head {
