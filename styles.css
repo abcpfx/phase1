@@ -193,18 +193,21 @@ h2:hover {
 }
 
 .sort-button {
-    display: inline-block;
-    outline: 0;
-    border: 0;
-    cursor: pointer;
-    background-color: white;
-    border-radius: 4px;
-    padding: 4px 8px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #2d3748;
-    border: 1px solid #cbd5e0;
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06);
+    overflow: hidden;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+    width: 160px;
+    height: 30px;
+    border: none;
+    background-image: linear-gradient(to right, #242424 0%, #777777 51%, #ffffff 100%);
+    margin-top: 10px;
+    text-align: center;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.3s ease;
+    /* Adjust the speed here */
 }
 
 .sort-button:hover {
