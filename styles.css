@@ -12,34 +12,6 @@ h3 {
     margin: 0 auto;
 }
 
-#loading-container {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.loader {
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid #3498db;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
 /* Media Queries */
 @media (max-width: 768px) {
     
@@ -175,7 +147,7 @@ h2:hover {
     max-width: 80%;
     height: auto;
     transform: translateY(50px); /* Initial position below the viewport */
-    opacity: 0;
+    opacity: 0.1;
     transition: transform 1s ease, opacity 1s ease; /* Add a transition for smooth animation */
 }
 
@@ -209,6 +181,39 @@ h2:hover {
 
     /* Support for IE. */
     font-feature-settings: 'liga';
+}
+
+.sortbtn {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
+}
+
+.sort-button {
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2d3748;
+    border: 1px solid #cbd5e0;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+.sort-button:hover {
+    background: rgb(148, 148, 148);
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+}
+
+.sort-button:active {
+    transform: scale(0.8);
 }
 
 /* Container for meal categories */

@@ -1,14 +1,61 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Hide the loading container after a 3-second delay when the DOM is ready
-    setTimeout(function() {
-        document.getElementById("loading-container").style.display = "none";
-    }, 3000);
+    sortCheckboxes();
 });
 
-window.addEventListener("load", function() {
-    // Hide the loading container when the page has fully loaded
-    document.getElementById("loading-container").style.display = "none";
-});
+function sortCheckboxes() {
+    var foodItemsContainer = document.getElementById("fooditems");
+    var checkboxes = foodItemsContainer.querySelectorAll(".itemcheckbox");
+
+    // Convert NodeList to an array for easier manipulation
+    var checkboxesArray = Array.from(checkboxes);
+
+    // Custom sorting function based on data-food-type
+    checkboxesArray.sort(function(a, b) {
+        var typeA = a.querySelector("input").getAttribute("data-food-type");
+        var typeB = b.querySelector("input").getAttribute("data-food-type");
+
+        // Define the sorting order
+        var order = { "main": 1, "others": 2, "drinks": 3, "snacks": 4 };
+
+        return order[typeA] - order[typeB];
+    });
+
+    // Clear the container
+    foodItemsContainer.innerHTML = "";
+
+    // Append sorted checkboxes back to the container
+    checkboxesArray.forEach(function(checkbox) {
+        foodItemsContainer.appendChild(checkbox);
+    });
+}
+
+function sortCheckboxesByCalories(order) {
+    var foodItemsContainer = document.getElementById("fooditems");
+    var checkboxes = foodItemsContainer.querySelectorAll(".itemcheckbox");
+
+    // Convert NodeList to an array for easier manipulation
+    var checkboxesArray = Array.from(checkboxes);
+
+    // Custom sorting function based on data-calories
+    checkboxesArray.sort(function(a, b) {
+        var caloriesA = parseInt(a.querySelector("input").getAttribute("data-calories"));
+        var caloriesB = parseInt(b.querySelector("input").getAttribute("data-calories"));
+
+        if (order === 'asc') {
+            return caloriesA - caloriesB;
+        } else if (order === 'desc') {
+            return caloriesB - caloriesA;
+        }
+    });
+
+    // Clear the container
+    foodItemsContainer.innerHTML = "";
+
+    // Append sorted checkboxes back to the container
+    checkboxesArray.forEach(function(checkbox) {
+        foodItemsContainer.appendChild(checkbox);
+    });
+}
 
 // Function to check if an element is in the viewport
 function isElementInViewport(el) {

@@ -14,9 +14,6 @@
 </head>
 
 <body>
-    <div id="loading-container">
-        <div class="loader"></div>
-    </div>
 <div class="ms">
     <div class="head">
         <img class="rsimg" src="items/h01.webp" alt="titleimg" loading="lazy" onload="this.classList.add('loaded')">
@@ -31,11 +28,11 @@
     </div>
     <div class="searchandfilter">
         <select id="foodFilter">
-            <option value="all" disabled selected hidden>เลือกประเภทของอาหาร</option>
+            <option value="all" disabled selected hidden>เลือกประเภทอาหาร</option>
             <option value="all">ทุกประเภท</option>
             <option value="main">อาหารจานเดียว</option>
             <option value="drinks">เครื่องดื่ม</option>
-            <option value="snacks">ขนมและอาหารทานเล่น</option>            
+            <option value="snacks">ขนมและอาหารว่าง</option>            
             <option value="calories-less-than-100">แคลอรี่น้อยกว่า 100</option>
             <option value="calories-between-101-250">แคลอรี่ระหว่าง 101 ถึง 250</option>
             <option value="calories-250-or-more">แคลอรี่มากกว่า 250 ขึ้นไป</option>
@@ -48,6 +45,15 @@
         <button id="addBreakfast"><i class="material-icons" style="font-size: 1em;">free_breakfast</i> เพิ่มมื้อเช้า</button>
         <button id="addLunch"><i class="material-icons" style="font-size: 1em;">restaurant</i> เพิ่มมื้อกลางวัน</button>
         <button id="addDinner"><i class="material-icons" style="font-size: 1em;">local_dining</i> เพิ่มมื้อเย็น</button>
+    </div>
+
+    <div class="sortbtn">
+        <button class="sort-button" onclick="sortCheckboxesByCalories('asc')">
+        เรียงจากแคลอรี่ต่ำไปสูง
+        </button>
+        <button class="sort-button" onclick="sortCheckboxesByCalories('desc')">
+        เรียงจากแคลอรี่สูงไปต่ำ
+        </button>
     </div>
 
     <div class="fooditems" id="fooditems">
@@ -754,7 +760,7 @@
         </div>
 
         <div class="itemcheckbox">
-            <input type="checkbox" id="others009" name="foodItem" value="ต้มยำกุ้ง" data-food-type="snacks" data-calories="500" data-image="/items/others009.webp">
+            <input type="checkbox" id="others009" name="foodItem" value="ต้มยำกุ้ง" data-food-type="others" data-calories="500" data-image="/items/others009.webp">
             <label for="others009">
                 <img src="/items/others009.webp" alt="ต้มยำกุ้ง" loading="lazy" />
                 <span class="cover-checkbox">
