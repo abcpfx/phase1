@@ -10,6 +10,40 @@ window.addEventListener("load", function() {
     document.getElementById("loading-container").style.display = "none";
 });
 
+// Function to check if an element is in the viewport
+function isElementInViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  // Function to handle the animation of itemcheckbox elements
+  function animateItems() {
+    var items = document.querySelectorAll('.itemcheckbox');
+    
+    items.forEach(function(item, index) {
+      // Add a class with a delay based on the index
+      setTimeout(function() {
+        item.classList.add('show');
+      }, index * 100); // Adjust the delay as needed
+    });
+  }
+
+  // Event listener for scroll
+  window.addEventListener('scroll', function() {
+    // Check if the fooditems container is in the viewport
+    if (isElementInViewport(document.getElementById('fooditems'))) {
+      // Call the animateItems function when in viewport
+      animateItems();
+      // Remove the scroll event listener to avoid multiple calls
+      window.removeEventListener('scroll', arguments.callee);
+    }
+  });
+
 const foodItems = document.querySelectorAll("input[name='foodItem']");
 const breakfastResult = document.getElementById("breakfastResult");
 const lunchResult = document.getElementById("lunchResult");

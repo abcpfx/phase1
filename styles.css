@@ -359,6 +359,14 @@ button.delete-button:hover {
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
     background: rgb(240, 240, 240);
     transition: transform var(--transition);
+    opacity: 0; /* Initially hide the items */
+    transform: translateY(20px); /* Move the items down initially */
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.itemcheckbox.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .itemcheckbox:active {
@@ -452,7 +460,7 @@ label .cover-checkbox svg {
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-dasharray: 15px;
-    transition: stroke-dashoffset 0.2s ease var(--transition);
+    transition: stroke-dashoffset 0.15s ease var(--transition);
     stroke-dashoffset: 15px;
     filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
 }
@@ -677,13 +685,12 @@ label .info {
     padding: 15px;
     border-radius: 30px;
     border: 4px solid;
-    border-color: #ffffff;
-    background-color: #acacac;
+    background-color: #cacaca;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
     /* Material Design blue shadow */
     color: white;
     /* Text color */
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
     /* Text shadow for added visual effect */
 }
 
