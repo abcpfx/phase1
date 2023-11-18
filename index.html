@@ -48,13 +48,13 @@
     </div>
 
     <div class="sortbtn">
-        <button class="sort-button" onclick="sortCheckboxesByCalories('asc')">
-        เรียงจากแคลอรี่ต่ำไปสูง
-        </button>
-        <button class="sort-button" onclick="sortCheckboxesByCalories('desc')">
-        เรียงจากแคลอรี่สูงไปต่ำ
-        </button>
-    </div>
+        <select id="sortOrder" onchange="sortCheckOrder(this.value)">
+            <option value="default" disabled selected hidden>เรียงแคลอรี่</option>
+            <option value="default">ไม่เรียง</option>
+            <option value="asc">น้อยไปหามาก</option>
+            <option value="desc">มากไปหาน้อย</option>
+        </select>
+    </div> 
 
     <div class="fooditems" id="fooditems">
         <div class="itemcheckbox">
@@ -1503,6 +1503,7 @@
                 </div>
             </div>
             <div id="breakfastTotalCalories" class="total-calories"></div>
+            <button id="addRandomBreakfast" hidden><i class="material-icons" style="font-size: 1em;">free_breakfast</i> สุ่มมื้อเช้า</button>
             <button id="resetBreakfast" class="reset-button reset-breakfast">ลบทั้งหมด</button>
         </div>
         <div class="meal-category" id="lunchResult">
@@ -1514,6 +1515,7 @@
                 </div>
             </div>
             <div id="lunchTotalCalories" class="total-calories"></div>
+            <button id="addRandomLunch" hidden><i class="material-icons" style="font-size: 1em;">restaurant</i> สุ่มมื้อกลางวัน</button>
             <button id="resetLunch" class="reset-button reset-lunch">ลบทั้งหมด</button>
         </div>
         <div class="meal-category" id="dinnerResult">
@@ -1525,6 +1527,7 @@
                 </div>
             </div>
             <div id="dinnerTotalCalories" class="total-calories"></div>
+            <button id="addRandomDinner" hidden><i class="material-icons" style="font-size: 1em;">local_dining</i> สุ่มมื้อเย็น</button>
             <button id="resetDinner" class="reset-button reset-dinner">ลบทั้งหมด</button>
         </div>
     </div>

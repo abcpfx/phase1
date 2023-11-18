@@ -2,6 +2,14 @@ document.addEventListener("DOMContentLoaded", function() {
     sortCheckboxes();
 });
 
+function sortCheckOrder(order) {
+    if (order === 'default') {
+        sortCheckboxes();
+    } else {
+        sortCheckboxesByCalories(order);
+    }
+}
+
 function sortCheckboxes() {
     var foodItemsContainer = document.getElementById("fooditems");
     var checkboxes = foodItemsContainer.querySelectorAll(".itemcheckbox");
@@ -76,7 +84,7 @@ function isElementInViewport(el) {
       // Add a class with a delay based on the index
       setTimeout(function() {
         item.classList.add('show');
-      }, index * 100); // Adjust the delay as needed
+      }, index * 50); // Adjust the delay as needed
     });
   }
 
@@ -148,6 +156,69 @@ function addToMealTime(mealTime) {
             existingItem.count++;
         } else {
             // If it's a new item, add it to the list with a count of 1.
+            foodItem.count = 1;
+            selectedItems[mealTime].push(foodItem);
+        }
+    });
+
+    // Call the updateSelection function to update the UI with the selected items
+    updateSelection();
+
+    // Remove the border from the previously selected category
+    document.getElementById(`${currentCategory}`).style.border = "none";
+
+    // Scroll to the corresponding category
+    scrollToCategory(mealTime);
+
+    // Update the currently selected category
+    currentCategory = `${mealTime}Result`;
+}
+
+document.getElementById("addRandomBreakfast").addEventListener("click", () => {
+    addRandomFoodToMeal("breakfast");
+});
+
+document.getElementById("addRandomLunch").addEventListener("click", () => {
+    addRandomFoodToMeal("lunch");
+});
+
+document.getElementById("addRandomDinner").addEventListener("click", () => {
+    addRandomFoodToMeal("dinner");
+});
+
+function addRandomFoodToMeal(mealTime) {
+    const selectedFoodItems = [];
+
+    // Filter food items by data-food-type
+    const filteredFoodItems = Array.from(foodItems).filter((checkbox) => {
+        return checkbox.getAttribute("data-food-type");
+    });
+
+    // Group food items by data-food-type
+    const groupedFoodItems = filteredFoodItems.reduce((groups, checkbox) => {
+        const foodType = checkbox.getAttribute("data-food-type");
+        (groups[foodType] = groups[foodType] || []).push(checkbox);
+        return groups;
+    }, {});
+
+    // Select one random food item from each data-food-type
+    for (const foodType in groupedFoodItems) {
+        const randomIndex = Math.floor(Math.random() * groupedFoodItems[foodType].length);
+        const selectedCheckbox = groupedFoodItems[foodType][randomIndex];
+
+        selectedFoodItems.push({
+            name: selectedCheckbox.value,
+            calories: parseInt(selectedCheckbox.getAttribute("data-calories"), 10),
+            image: selectedCheckbox.getAttribute("data-image"),
+        });
+    }
+
+    // Update the selected items for the specified meal time
+    selectedFoodItems.forEach((foodItem) => {
+        const existingItem = selectedItems[mealTime].find((item) => item.name === foodItem.name);
+        if (existingItem) {
+            existingItem.count++;
+        } else {
             foodItem.count = 1;
             selectedItems[mealTime].push(foodItem);
         }
@@ -406,25 +477,6 @@ function resetSelection() {
 
     // Reset the background color of totalresult to the default color
     totalCaloriesResult.style.backgroundColor = '#bebebe';
-
-    const navButtons = document.querySelectorAll(".nav-button");
-    const categoryDivs = {
-        breakfast: document.getElementById("breakfastResult"),
-        lunch: document.getElementById("lunchResult"),
-        dinner: document.getElementById("dinnerResult"),
-    };
-
-    // Deselect the navigation buttons and remove border effects
-    navButtons.forEach((button) => {
-        button.classList.remove("active");
-    });
-
-    // Reset the border effects on categoryDivs
-    for (const key in categoryDivs) {
-        if (categoryDivs.hasOwnProperty(key)) {
-            categoryDivs[key].style.border = "none";
-        }
-    }
 }
 
 // Define a filter and search function
