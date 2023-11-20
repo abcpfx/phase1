@@ -146,7 +146,7 @@ h2:hover {
     margin: 10px;
     max-width: 80%;
     height: auto;
-    transform: translateY(50px); /* Initial position below the viewport */
+    transform: translateY(40px); /* Initial position below the viewport */
     opacity: 0.1;
     transition: transform 1s ease, opacity 1s ease; /* Add a transition for smooth animation */
 }
@@ -187,7 +187,7 @@ h2:hover {
     width: 25vw; /* Adjust the width as needed */
     max-height: fit-content;
     font-size: 14px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 4px;
     background-color: #fff;
     color: #333;
@@ -209,6 +209,7 @@ h2:hover {
 
 .sortbtn {
     margin-bottom: 10px;
+    margin-right: 2vw;
     display: flex;
     align-items: right;
     justify-content: right;

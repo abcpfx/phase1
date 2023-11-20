@@ -84,7 +84,7 @@ function isElementInViewport(el) {
       // Add a class with a delay based on the index
       setTimeout(function() {
         item.classList.add('show');
-      }, index * 50); // Adjust the delay as needed
+      }, index * 75); // Adjust the delay as needed
     });
   }
 
@@ -246,7 +246,7 @@ function scrollToCategory(category) {
         targetCategory.scrollIntoView({ behavior: "smooth", block: "center" });
         
         // Set the border color of the selected category
-        targetCategory.style.border = `2px solid ${getBorderColor(category)}`;
+        targetCategory.style.border = `3px solid ${getBorderColor(category)}`;
     }
 }
 
@@ -295,7 +295,7 @@ function updateSelection() {
     const totalCaloriesSpan = document.createElement("span");
     const color = getColorForValue(totalCalories);
 
-    totalCaloriesSpan.textContent = totalCalories; // Assuming totalCalories is a numeric value
+    totalCaloriesSpan.textContent = totalCalories;
 
     // Set text color and border color
     totalCaloriesSpan.style.color = color;
@@ -306,7 +306,7 @@ function updateSelection() {
 
     // Create a span element for "kcal" text
     const kcalSpan = document.createElement("span");
-    kcalSpan.textContent = `  kcal`;
+    kcalSpan.textContent = `  กิโลแคลอรี่`;
     totalCaloriesResult.appendChild(kcalSpan);
 
     // Animate the total calorie count for all meals
@@ -349,8 +349,8 @@ function animateTotalCaloriesForMealtime(totalCaloriesElement, mealItems) {
     }
     totalCaloriesElement.dataset.isAnimating = "true"; // Set the flag
 
-    const duration = 1000; // Animation duration in milliseconds
-    const frames = 30; // Number of frames
+    const duration = 500; // Animation duration in milliseconds
+    const frames = 15; // Number of frames
     const initialFontSize = 16; // Starting font size
     const maxFontSize = 20; // Maximum font size
     const fontSizeIncrement = (maxFontSize - initialFontSize) / frames;
@@ -375,9 +375,8 @@ function animateTotalCaloriesForMealtime(totalCaloriesElement, mealItems) {
     updateValue();
 }
 
-// Include your getColorForValue and animateCounting functions here if they are defined elsewhere in your code.
 function animateCounting(element, targetValue) {
-    const duration = 1000; // Animation duration in milliseconds
+    const duration = 500; // Animation duration in milliseconds
     const frames = 15; // Number of frames
     const initialFontSize = 18; // Starting font size
     const maxFontSize = 26; // Maximum font size
