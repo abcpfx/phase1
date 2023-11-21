@@ -360,13 +360,13 @@ function animateTotalCaloriesForMealtime(totalCaloriesElement, mealItems) {
 
     const updateValue = () => {
         if (currentValue < totalCalories) {
-            totalCaloriesElement.textContent = `แคลอรี่ทั้งหมด : ${Math.round(currentValue)} kcal`;
+            totalCaloriesElement.textContent = `แคลอรี่ทั้งหมด : ${Math.round(currentValue)} กิโลแคลอรี่`;
             totalCaloriesElement.style.fontSize = `${currentFontSize}px`; // Update font size
             currentValue += increment;
             currentFontSize += fontSizeIncrement; // Increment font size
             requestAnimationFrame(updateValue);
         } else {
-            totalCaloriesElement.textContent = `แคลอรี่ทั้งหมด : ${totalCalories} kcal`;
+            totalCaloriesElement.textContent = `แคลอรี่ทั้งหมด : ${totalCalories} กิโลแคลอรี่`;
             totalCaloriesElement.style.fontSize = `${maxFontSize}px`; // Set to maximum font size
             totalCaloriesElement.dataset.isAnimating = "false"; // Reset the flag when the animation is complete
         }
