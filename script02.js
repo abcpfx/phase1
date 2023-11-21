@@ -291,27 +291,21 @@ function updateSelection() {
     const allSelectedItems = [...selectedItems.breakfast, ...selectedItems.lunch, ...selectedItems.dinner];
     const totalCalories = calculateTotalCalories(allSelectedItems);
 
-    // Create a span element for the total calories count
-    const totalCaloriesSpan = document.createElement("span");
-    const color = getColorForValue(totalCalories);
+    // Get the totalCaloriesValue span element
+    const totalCaloriesSpan = document.getElementById("totalCaloriesValue");
 
+    // Set text content for the total calories count
     totalCaloriesSpan.textContent = totalCalories;
 
     // Set text color and border color
+    const color = getColorForValue(totalCalories);
     totalCaloriesSpan.style.color = color;
-    totalCaloriesResult.style.borderColor = color;
-
-    totalCaloriesResult.innerHTML = `รวมวันนี้ทานไป `;
-    totalCaloriesResult.appendChild(totalCaloriesSpan);
-
-    // Create a span element for "kcal" text
-    const kcalSpan = document.createElement("span");
-    kcalSpan.textContent = `  กิโลแคลอรี่`;
-    totalCaloriesResult.appendChild(kcalSpan);
 
     // Animate the total calorie count for all meals
     animateCounting(totalCaloriesSpan, totalCalories);
 
+    // Update suggestions based on total calories
+    updateSuggestions(totalCalories);
 }
 
 function updateMealtimeResult(resultElement, items, mealTime) {
@@ -412,10 +406,10 @@ function getColorForValue(value) {
         case value <= 1000:
             color = 'red';
             break;
-        case value >= 1001 && value <= 1700:
+        case value >= 1001 && value <= 1799:
             color = 'orange';
             break;
-        case value >= 1701 && value <= 2000:
+        case value >= 1800 && value <= 2000:
             color = 'green';
             break;
         case value > 2000:
@@ -427,6 +421,39 @@ function getColorForValue(value) {
     }
 
     return color;
+}
+
+function updateSuggestions(value) {
+    const suggestionsSpan = document.getElementById("suggestions");
+
+    let suggestionText = '';
+    let suggestionColor = '';
+
+    switch (true) {
+        case value <= 1000:
+            suggestionText = '❌ รับประทานน้อยเกินไปแล้ว ❌';
+            suggestionColor = 'red';
+            break;
+        case value >= 1001 && value <= 1799:
+            suggestionText = 'รับประทานอีกหน่อยนะ -';
+            suggestionColor = 'orange';
+            break;
+        case value >= 1800 && value <= 2000:
+            suggestionText = '✔ รับประทานเพียงพอแล้ว ✔';
+            suggestionColor = 'green';
+            break;
+        case value > 2000:
+            suggestionText = '❌ รับประทานมากเกินไปแล้ว ❌';
+            suggestionColor = 'red';
+            break;
+        default:
+            suggestionText = 'Unknown';
+            suggestionColor = 'gray';
+            break;
+    }
+
+    suggestionsSpan.textContent = suggestionText;
+    suggestionsSpan.style.color = suggestionColor;
 }
 
 // Initialize the selection when the page loads
@@ -473,9 +500,6 @@ function resetSelection() {
 
     // Clear the displayed selections and total calories
     updateSelection();
-
-    // Reset the background color of totalresult to the default color
-    totalCaloriesResult.style.backgroundColor = '#bebebe';
 }
 
 // Define a filter and search function

@@ -563,9 +563,7 @@ label .info {
 
 #foodFilter option:hover {
     background-color: #1976D2;
-    /* Material Design blue on option hover */
     color: #fff;
-    /* White text color on option hover */
 }
 
 .addmealbuttons {
@@ -596,13 +594,11 @@ label .info {
     border-radius: 10px;
     display: block;
     transition: transform 0.3s ease;
-    /* Adjust the speed here */
 }
 
 /* Hover effect for the "Add to Breakfast" button */
 #addBreakfast:hover {
     background-position: right center;
-    /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
 }
@@ -631,13 +627,11 @@ label .info {
     border-radius: 10px;
     display: block;
     transition: transform 0.3s ease;
-    /* Adjust the speed here */
 }
 
 /* Hover effect for the "Add to Lunch" button */
 #addLunch:hover {
     background-position: right center;
-    /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
 }
@@ -666,13 +660,11 @@ label .info {
     border-radius: 10px;
     display: block;
     transition: transform 0.3s ease;
-    /* Adjust the speed here */
 }
 
 /* Hover effect for the "Add to Dinner" button */
 #addDinner:hover {
     background-position: right center;
-    /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
 }
@@ -683,27 +675,58 @@ label .info {
     transform: scale(0.8);
 }
 
-/* Updated style for totalCaloriesResult with Material Design look */
 .totalresult {
-    margin: 40px auto;
+    margin: 20px auto;
     font-size: 24px;
     display: flex;
     height: auto;
-    max-width: 50%;
+    max-width: 60vw;
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
-    /* Center items vertically and horizontally */
+    border: 3px solid;
     text-align: center;
-    /* Center-align text */
-    padding: 15px;
-    border-radius: 30px;
-    border: 4px solid;
-    background-color: #000000;
+    background-color: #fff8b5;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-    /* Material Design blue shadow */
     color: white;
-    /* Text color */
+}
+
+#totalEatenText {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #1976D2;
+    width: 100%;
+}
+
+#kcal {
+    color: #2196F3;
+    padding-bottom: 5px;
+}
+
+.totalinfo {
+    padding: 10px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 40vw;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+}
+
+#ltitle {
+    font-size: 20px;
+    color: #333;
+}
+
+#suggestions {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #e2e2e2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .resetbutton {

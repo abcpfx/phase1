@@ -13,7 +13,7 @@ const items =
     { id: "main012", name: "ข้าวกะเพราหมูกรอบ", foodType: "main", calories: 500, image: "/items/main012.webp" },
     { id: "main013", name: "ขนมจีนน้ำยาป่า", foodType: "main", calories: 180, image: "/items/main013.webp" },
     { id: "main014", name: "ยำขนมจีน", foodType: "main", calories: 280, image: "/items/main014.webp" },
-    { id: "main015", name: "ขนมจีนแกงเขียวหวาน", foodType: "main", calories: 400, image: "/items/main015.webp" },
+    { id: "main015", name: "ขนมจีนแกงเขียวหวาน", foodType: "main", calories: 500, image: "/items/main015.webp" },
     { id: "main016", name: "ราดหน้าหมู", foodType: "main", calories: 600, image: "/items/main016.webp" },
     { id: "main017", name: "ผัดซีอิ้วเส้นใหญ่หมู", foodType: "main", calories: 700, image: "/items/main017.webp" },
     { id: "main018", name: "บะหมี่แห้งหมู", foodType: "main", calories: 240, image: "/items/main018.webp" },
@@ -50,9 +50,9 @@ const items =
     { id: "main048", name: "ข้าวอบธัญพืชและไก่", foodType: "main", calories: 280, image: "/items/main048.webp" },
     { id: "main049", name: "ข้าวกล้องต้มไก่ทรงเครื่อง", foodType: "main", calories: 150, image: "/items/main049.webp" },
     { id: "main050", name: "ข้าวผัดไส้กรอก", foodType: "main", calories: 380, image: "/items/main050.webp" },
-    { id: "others001", name: "ปีกไก่ย่าง", foodType: "others", calories: 200, image: "/items/others001.webp" },
+    { id: "others001", name: "ปีกไก่ย่าง", foodType: "others", calories: 300, image: "/items/others001.webp" },
     { id: "others003", name: "แกงส้มชะอมทอด", foodType: "others", calories: 200, image: "/items/others003.webp" },
-    { id: "others004", name: "แกงเหลืองปลา", foodType: "others", calories: 100, image: "/items/others004.webp" },
+    { id: "others004", name: "แกงเหลืองปลา", foodType: "others", calories: 200, image: "/items/others004.webp" },
     { id: "others006", name: "เกี๊ยวน้ำหมู", foodType: "others", calories: 400, image: "/items/others006.webp" },
     { id: "others007", name: "เกาเหลาลูกชิ้น", foodType: "others", calories: 200, image: "/items/others007.webp" },
     { id: "others008", name: "กุ้งอบวุ้นเส้น", foodType: "others", calories: 300, image: "/items/others008.webp" },
@@ -112,28 +112,49 @@ const items =
     { id: "snacks032", name: "ลูกเกดดำ ทองการ์เด้น", foodType: "snacks", calories: 90, image: "/items/snacks032.webp" }
     ];
       
-        // Function to generate HTML for each item
-        function generateItemHTML(item) {
-          return `
-            <div class="itemcheckbox">
+    function generateItemHTML(item) {
+      let borderColor;
+  
+      // Set border color based on food type
+      switch (item.foodType) {
+          case 'main':
+              borderColor = '#ED2939';
+              break;
+          case 'others':
+              borderColor = '#0B6623';
+              break;
+          case 'snacks':
+              borderColor = '#FF5E0E';
+              break;
+          case 'drinks':
+              borderColor = '#7DF9FF';
+              break;
+          default:
+              borderColor = 'black'; // Default color for undefined cases
+              break;
+      }
+  
+      return `
+          <div class="itemcheckbox" style="border: 2px solid ${borderColor};">
               <input type="checkbox" id="${item.id}" name="foodItem" value="${item.name}" data-food-type="${item.foodType}" data-calories="${item.calories}" data-image="${item.image}">
               <label for="${item.id}">
-                <img src="${item.image}" alt="${item.name}" loading="lazy" />
-                <span class="cover-checkbox">
-                  <svg viewBox="0 0 12 10">
-                    <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                  </svg>
-                </span>
-                <div class="info">${item.name}<br>${item.calories} kcal</div>
+                  <img src="${item.image}" alt="${item.name}" loading="lazy" />
+                  <span class="cover-checkbox">
+                      <svg viewBox="0 0 12 10">
+                          <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                      </svg>
+                  </span>
+                  <div class="info">${item.name}<br>${item.calories} kcal</div>
               </label>
-            </div>
-          `;
-        }
-      
-        // Get the container element
-        const foodItemsContainer = document.getElementById("fooditems");
-      
-        // Loop through items and append HTML to container
-        items.forEach(item => {
-          foodItemsContainer.innerHTML += generateItemHTML(item);
-    });
+          </div>
+      `;
+  }
+  
+  // Get the container element
+  const foodItemsContainer = document.getElementById("fooditems");
+  
+  // Loop through items and append HTML to container
+  items.forEach(item => {
+      foodItemsContainer.innerHTML += generateItemHTML(item);
+  });
+  
