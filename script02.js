@@ -23,7 +23,7 @@ function sortCheckboxes() {
         var typeB = b.querySelector("input").getAttribute("data-food-type");
 
         // Define the sorting order
-        var order = { "main": 1, "others": 2, "drinks": 3, "snacks": 4 };
+        var order = { "main": 1, "others": 2, "snacks": 3, "drinks": 4 };
 
         return order[typeA] - order[typeB];
     });
