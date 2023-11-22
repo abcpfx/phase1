@@ -111,50 +111,44 @@ const items =
     { id: "snacks031", name: "อัลมอนด์อบเกลือ", foodType: "snacks", calories: 200, image: "/items/snacks031.webp" },
     { id: "snacks032", name: "ลูกเกดดำ ทองการ์เด้น", foodType: "snacks", calories: 90, image: "/items/snacks032.webp" }
     ];
-      
     function generateItemHTML(item) {
-      let borderColor;
-  
-      // Set border color based on food type
-      switch (item.foodType) {
-          case 'main':
-              borderColor = '#ED2939';
-              break;
-          case 'others':
-              borderColor = '#0B6623';
-              break;
-          case 'snacks':
-              borderColor = '#FF5E0E';
-              break;
-          case 'drinks':
-              borderColor = '#7DF9FF';
-              break;
-          default:
-              borderColor = 'black'; // Default color for undefined cases
-              break;
-      }
-  
-      return `
-          <div class="itemcheckbox" style="border: 2px solid ${borderColor};">
-              <input type="checkbox" id="${item.id}" name="foodItem" value="${item.name}" data-food-type="${item.foodType}" data-calories="${item.calories}" data-image="${item.image}">
-              <label for="${item.id}">
-                  <img src="${item.image}" alt="${item.name}" loading="lazy" />
-                  <span class="cover-checkbox">
-                      <svg viewBox="0 0 12 10">
-                          <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                      </svg>
-                  </span>
-                  <div class="info">${item.name}<br>${item.calories} kcal</div>
-              </label>
-          </div>
-      `;
-  }
-  
-  // Get the container element
-  const foodItemsContainer = document.getElementById("fooditems");
-  
-  // Loop through items and append HTML to container
-  items.forEach(item => {
-      foodItemsContainer.innerHTML += generateItemHTML(item);
-  });
-  
+        let borderColor;
+        // Set border color based on food type
+        switch(item.foodType) {
+            case 'main':
+                borderColor = '#e41a1c';
+                break;
+            case 'others':
+                borderColor = '#377eb8';
+                break;
+            case 'snacks':
+                borderColor = '#4daf4a';
+                break;
+            case 'drinks':
+                borderColor = '#984ea3';
+                break;
+            default:
+                borderColor = 'black'; // Default color for undefined cases
+                break;
+        }
+        return `
+              <div class="itemcheckbox" style="border: 1px solid ${borderColor};">
+                  <input type="checkbox" id="${item.id}" name="foodItem" value="${item.name}" data-food-type="${item.foodType}" data-calories="${item.calories}" data-image="${item.image}">
+                  <label for="${item.id}">
+                      <img src="${item.image}" alt="${item.name}" loading="lazy" />
+                      <span class="cover-checkbox">
+                          <svg viewBox="0 0 12 10">
+                              <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                          </svg>
+                      </span>
+                      <div class="info">${item.name}<br>${item.calories} kcal</div>
+                  </label>
+              </div>
+          `;
+    }
+    // Get the container element
+    const foodItemsContainer = document.getElementById("fooditems");
+    // Loop through items and append HTML to container
+    items.forEach(item => {
+        foodItemsContainer.innerHTML += generateItemHTML(item);
+    });

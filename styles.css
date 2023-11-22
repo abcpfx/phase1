@@ -1,815 +1,734 @@
 /* Default styles for all screen sizes */
 /* Global Styles */
 body {
-    font-family: 'Kanit', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
+	font-family: 'Kanit', sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f5f5f5;
 }
-
-h1,
-h3 {
-    margin: 0 auto;
+h1,h3 {
+	margin: 0 auto;
 }
-
 /* Media Queries */
 @media (max-width: 768px) {
-    
-    .rsimg {
-        max-width: 90%;
-    }
-
-    .fooditems {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .itemcheckbox {
-        width: 25%;
-        padding: 5px;
-    }
-
-    .info {
-        font-size: 14px;
-    }
-
-    .addmealbuttons {
-        font-family: 'Kanit', sans-serif;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+	.rsimg {
+		max-width: 90%;
+	}
+	.fooditems {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.itemcheckbox {
+		width: 25%;
+		padding: 5px;
+	}
+	.info {
+		font-size: 14px;
+	}
+	.addmealbuttons {
+		font-family: 'Kanit', sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 }
-
 @media (min-width: 769px) and (max-width: 1024px) {
-    
-    .rsimg {
-        max-width: 90%;
-    }
-
-    .fooditems {
-        padding: 10px;
-        margin: 5px;
-    }
-
-    .itemcheckbox {
-        width: 30%;
-        padding: 5px;
-    }
-
-    .info {
-        font-size: 14px;
-    }
-
-    .addmealbuttons {
-        font-family: 'Kanit', sans-serif;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+	.rsimg {
+		max-width: 90%;
+	}
+	.fooditems {
+		padding: 10px;
+		margin: 5px;
+	}
+	.itemcheckbox {
+		width: 30%;
+		padding: 5px;
+	}
+	.info {
+		font-size: 14px;
+	}
+	.addmealbuttons {
+		font-family: 'Kanit', sans-serif;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 }
-
 @media (min-width: 1025px) {
-
-    .rsimg {
-        max-width: 90%;
-    }
-
-    .fooditems {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .itemcheckbox {
-        width: 25%;
-        padding: 10px;
-    }
+	.rsimg {
+		max-width: 90%;
+	}
+	.fooditems {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.itemcheckbox {
+		width: 25%;
+		padding: 10px;
+	}
 }
-
 /* Other Styles */
 * {
-    font-family: 'Kanit', sans-serif;
-    --transition: 0.1s;
+	font-family: 'Kanit', sans-serif;
+	--transition: 0.1s;
 }
-
 h1 {
-    text-align: center;
-    font-weight: 550;
-    text-transform: uppercase;
-    transition: color 0.3s ease-in-out;
+	text-align: center;
+	font-weight: 550;
+	text-transform: uppercase;
+	transition: color 0.3s ease-in-out;
 }
-
 h1 {
-    font-size: 24px;
-    color: #2196F3;
-    margin: 20px 0;
-    letter-spacing: 2px;
-    border-bottom: 2px solid #2196F3;
-    /* Add a 2px solid line decoration with your desired color */
-    padding-bottom: 5px;
-    /* Adjust the padding as needed to control the distance between the text and the line */
-    display: inline-block;
-    /* Prevent the border from spanning the entire width */
+	font-size: 24px;
+	color: #2196F3;
+	margin: 20px 0;
+	letter-spacing: 2px;
+	border-bottom: 2px solid #2196F3;
+	/* Add a 2px solid line decoration with your desired color */
+	padding-bottom: 5px;
+	/* Adjust the padding as needed to control the distance between the text and the line */
+	display: inline-block;
+	/* Prevent the border from spanning the entire width */
 }
-
 h1:hover {
-    color: #1976D2;
+	color: #1976D2;
 }
-
 h2 {
-    display: inline-block;
-    font-size: 24px;
-    font-weight: 500;
-    color: #fff; /* Text color */
-    margin: 16px 0;
-    padding: 12px 24px;
-    letter-spacing: 1px;
-    background-color: #3659f4; /* Background color */
-    border: 2px solid #2a44b8;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Adjusted box shadow */
-    border-radius: 8px; /* Slightly reduced border radius */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	background-image: linear-gradient(to right, #F7971E 0%, #FFD200 51%, #F7971E 100%);
+	width: 25%;
+	margin: 15px;
+	padding: 10px 20px;
+	text-align: center;
+	text-transform: uppercase;
+	transition: 0.5s;
+	background-size: 200% auto;
+	color: rgb(255, 255, 255);
+	box-shadow: 0 0 20px #eee;
+	display: inline-block;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
-
 h2:hover {
-    background-color: #2a44b8; /* Darker background on hover */
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* Adjusted box shadow on hover */
+	background-position: right center;
+	/* change the direction of the change here */
+	color: #fff;
+	text-decoration: none;
 }
-
 .head {
-    align-items: center;
-    align-content: center;
-    text-align: center;
+	align-items: center;
+	align-content: center;
+	text-align: center;
 }
-
+.head2 {
+	align-items: center;
+	align-content: center;
+	text-align: center;
+}
 .rsimg {
-    margin: 10px;
-    max-width: 80%;
-    height: auto;
-    transform: translateY(40px); /* Initial position below the viewport */
-    opacity: 0.1;
-    transition: transform 1s ease, opacity 1s ease; /* Add a transition for smooth animation */
+	margin: 10px;
+	max-width: 80%;
+	height: auto;
+	transform: translateY(40px);
+	/* Initial position below the viewport */
+	opacity: 0.1;
+	transition: transform 1s ease, opacity 1s ease;
+	/* Add a transition for smooth animation */
 }
-
 .rsimg.loaded {
-    transform: translateY(0); /* Move to the original position */
-    opacity: 1; /* Set opacity to 1 when the image is loaded */
+	transform: translateY(0);
+	/* Move to the original position */
+	opacity: 1;
+	/* Set opacity to 1 when the image is loaded */
 }
-
 .material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    /* Preferred icon size */
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    vertical-align: middle;
-
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased;
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility;
-
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale;
-
-    /* Support for IE. */
-    font-feature-settings: 'liga';
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	/* Preferred icon size */
+	display: inline-block;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+	vertical-align: middle;
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+	/* Support for IE. */
+	font-feature-settings: 'liga';
 }
-
 #sortOrder {
-    width: 25vw; /* Adjust the width as needed */
-    max-height: fit-content;
-    font-size: 14px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    color: #333;
-    text-align: center;
+	width: 120px;
+	/* Adjust the width as needed */
+	max-height: fit-content;
+	font-size: 14px;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-color: #fff;
+	color: #333;
+	text-align: center;
 }
-
 #sortOrder:hover {
-    background-color: #f5f5f5;
+	background-color: #f5f5f5;
 }
-
 #sortOrder:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgb(16, 186, 233); /* Adjust the box shadow color as needed */
+	outline: none;
+	box-shadow: 0 0 5px rgb(16, 186, 233);
+	/* Adjust the box shadow color as needed */
 }
-
 #sortOrder option {
-    padding: 4px;
+	padding: 4px;
 }
-
 .sortbtn {
-    margin-bottom: 10px;
-    margin-right: 2vw;
-    display: flex;
-    align-items: right;
-    justify-content: right;
-    flex-direction: row;
+	margin-bottom: 10px;
+	margin-right: 2vw;
+	display: flex;
+	align-items: right;
+	justify-content: right;
+	flex-direction: row;
 }
-
 /* Container for meal categories */
 .mealresult {
-    display: flex;
-    overflow-x: auto;
-    /* Hide the horizontal scrollbar */
-    padding: 16px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    scroll-snap-type: x mandatory;
-    /* Enable snap-scrolling */
-    white-space: nowrap;
+	display: flex;
+	overflow-x: auto;
+	/* Hide the horizontal scrollbar */
+	padding: 16px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	scroll-snap-type: x mandatory;
+	/* Enable snap-scrolling */
+	white-space: nowrap;
 }
-
 /* Individual meal category */
 .meal-category {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    min-width: 100vw;
-    /* Adjust the width as needed */
-    scroll-snap-align: center;
-    /* Center the scrolling */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    scroll-snap-type: x mandatory;
-    /* Enable snap-scrolling */
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	min-width: 100vw;
+	/* Adjust the width as needed */
+	scroll-snap-align: center;
+	/* Center the scrolling */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	scroll-snap-type: x mandatory;
+	/* Enable snap-scrolling */
 }
-
 .meal-category h3 {
-    border-bottom: 2px solid #8f8f8f;
-    /* Adjust the color and width as needed */
-    padding-bottom: 10px;
-    /* Adjust the padding as needed */
-    display: inline;
+	border-bottom: 2px solid #8f8f8f;
+	/* Adjust the color and width as needed */
+	padding-bottom: 10px;
+	/* Adjust the padding as needed */
+	display: inline;
 }
-
 /* Container for items with vertical scrolling */
-#bicontainer,
-#lncontainer,
-#dncontainer {
-    width: 100%;
-    max-height: 300px;
-    overflow-y: auto;
+#bicontainer,#lncontainer,#dncontainer {
+	width: 100%;
+	max-height: 300px;
+	overflow-y: auto;
 }
-
 /* Styles for meal categories */
-#breakfastResult,
-#lunchResult,
-#dinnerResult {
-    flex: 1;
-    min-width: 350px;
-    padding: 8px;
-    background-color: #f5f5f5;
-    border-radius: 4px;
-    margin: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#breakfastResult,#lunchResult,#dinnerResult {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+	flex: 1;
+	min-width: 350px;
+    padding-bottom: 8px;
+	background-color: #f5f5f5;
+	margin: 8px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
-
 /* Styles for category headings */
-#breakfastResult h3,
-#lunchResult h3,
-#dinnerResult h3 {
-    text-align: center;
-    font-size: 20px;
-    margin: 8px;
-}
-
-/* Styles for item lists within categories */
-#breakfastItems,
-#lunchItems,
-#dinnerItems {
-    font-size: 16px;
-    margin: 8px;
-    display: flex;
-    flex-direction: column;
+#breakfastResult h3,#lunchResult h3,#dinnerResult h3 {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding-top: 8px;
     align-items: center;
+    justify-content: center;
+	text-align: center;
+	font-size: 20px;
 }
-
-/* Styles for list items within item lists */
-#breakfastItems li,
-#lunchItems li,
-#dinnerItems li {
+#breakfastResult h3 {
+    background-image: linear-gradient(to right, #41a783 0%, #93F9B9 51%, #1a835e 100%);
+    background-size: 200% auto;
+    color: rgb(0, 0, 0);
     width: 100%;
-    /* Fixed width to ensure alignment */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 4px 0;
 }
-
+#lunchResult h3 {
+    background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%);
+    background-size: 200% auto;
+    color: rgb(0, 0, 0);
+    width: 100%;
+}
+#dinnerResult h3 {
+    background-image: linear-gradient(to right, #FF512F 0%, #F09819 51%, #FF512F 100%);
+    background-size: 200% auto;
+    color: rgb(0, 0, 0);
+    width: 100%;
+}
+/* Styles for item lists within categories */
+#breakfastItems,#lunchItems,#dinnerItems {
+	font-size: 16px;
+	margin: 8px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+/* Styles for list items within item lists */
+#breakfastItems li,#lunchItems li,#dinnerItems li {
+	width: 100%;
+	/* Fixed width to ensure alignment */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 4px 0;
+}
 /* Add CSS styles for the delete button */
 button.delete-button {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    width: 40px;
-    height: 30px;
-    background-color: #f44336;
-    /* Red background color */
-    color: #fff;
-    /* White text color */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: 4px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	width: 40px;
+	height: 30px;
+	background-color: #f44336;
+	/* Red background color */
+	color: #fff;
+	/* White text color */
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	margin: 4px;
 }
-
 button.delete-button:hover {
-    background-color: #d32f2f;
-    /* Darker red on hover */
+	background-color: #d32f2f;
+	/* Darker red on hover */
 }
-
 /* Styles for reset buttons */
 .reset-button {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 3px rgba(0, 0, 0, 0.24);
-    font-family: 'Kanit', sans-serif;
-    width: 120px;
-    height: 36px;
-    background-color: #B00020;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: 8px auto;
-    text-transform: uppercase;
-    font-weight: 500;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 3px rgba(0, 0, 0, 0.24);
+	font-family: 'Kanit', sans-serif;
+	width: 120px;
+	height: 36px;
+	background-color: #B00020;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	margin: 8px auto;
+	text-transform: uppercase;
+	font-weight: 500;
 }
-
 .reset-button:hover {
-    background-color: #ff0000;
+	background-color: #ff0000;
 }
-
 .reset-button:active {
-    transform: scale(0.95);
-    opacity: 0.8;
+	transform: scale(0.95);
+	opacity: 0.8;
 }
-
 /* Image styles */
-#lunchItems img,
-#breakfastItems img,
-#dinnerItems img {
-    max-width: 120px;
-    max-height: 60px;
-    border-radius: 4px;
+#lunchItems img,#breakfastItems img,#dinnerItems img {
+	max-width: 120px;
+	max-height: 60px;
+	border-radius: 4px;
 }
-
 .itemcheckbox {
-    flex-direction: row;
-    margin: 2px;
-    width: 90px;
-    height: 110px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
-    background: rgb(240, 240, 240);
-    transition: transform var(--transition);
-    opacity: 0.1;
-    transform: translateY(20px); /* Move the items down initially */
-    transition: opacity 0.5s, transform 0.5s;
+	flex-direction: row;
+	margin: 2px;
+	width: 90px;
+	height: 110px;
+	border-radius: var(--border-radius);
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	background: rgb(240, 240, 240);
+	transition: transform var(--transition);
+	opacity: 0.1;
+	transform: translateY(20px);
+	/* Move the items down initially */
+	transition: opacity 0.5s, transform 0.5s;
 }
-
 .itemcheckbox.show {
-    opacity: 1;
-    transform: translateY(0);
+	opacity: 1;
+	transform: translateY(0);
 }
-
 .itemcheckbox:active {
-    transform: scale(0.8);
+	transform: scale(0.8);
 }
-
 .fooditems {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    width: 98vw;
-    /* Set the width as needed */
-    max-height: 40vh;
-    /* Set the height as needed */
-    border: none;
-    /* Optional: Add a border for styling */
-    overflow: auto;
-    /* Enable vertical and/or horizontal scrolling as needed */
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+	padding-top: 10px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	width: 98vw;
+	/* Set the width as needed */
+	max-height: 40vh;
+	/* Set the height as needed */
+	border: none;
+	/* Optional: Add a border for styling */
+	overflow: auto;
+	/* Enable vertical and/or horizontal scrolling as needed */
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
-
 input[type="checkbox"] {
-    display: none;
+	display: none;
 }
-
 input[type="checkbox"]:checked+label {
-    opacity: 1;
-    box-shadow: 0 0 0 3px var(--background);
+	opacity: 1;
+	box-shadow: 0 0 0 3px var(--background);
 }
-
 input[type="checkbox"]:checked+label img {
-    -webkit-filter: none;
-    /* Safari 6.0 - 9.0 */
-    filter: none;
+	-webkit-filter: none;
+	/* Safari 6.0 - 9.0 */
+	filter: none;
 }
-
 input[type="checkbox"]:checked+label .cover-checkbox {
-    opacity: 1;
-    transform: scale(1);
+	opacity: 1;
+	transform: scale(1);
 }
-
 input[type="checkbox"]:checked+label .cover-checkbox svg {
-    stroke-dashoffset: 0;
+	stroke-dashoffset: 0;
 }
-
 label {
-    display: inline-block;
-    cursor: pointer;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    opacity: 0.75;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: var(--border-radius);
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	opacity: 0.75;
 }
-
 label img {
-    width: 100%;
-    height: 65%;
-    object-fit: cover;
-    -webkit-filter: grayscale(0%);
-    /* Safari 6.0 - 9.0 */
-    filter: grayscale(0%);
+	width: 100%;
+	height: 65%;
+	object-fit: cover;
+	-webkit-filter: grayscale(0%);
+	/* Safari 6.0 - 9.0 */
+	filter: grayscale(0%);
 }
-
 label .cover-checkbox {
-    position: absolute;
-    right: 28px;
-    top: 15px;
-    z-index: 1;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: var(--box-shadow);
-    border: 5px solid #5ec15d;
-    transition: transform var(--transition), opacity calc(var(--transition) * 1.1) linear;
-    opacity: 0;
-    transform: scale(0);
-    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+	position: absolute;
+	right: 28px;
+	top: 15px;
+	z-index: 1;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background: var(--box-shadow);
+	border: 5px solid #5ec15d;
+	transition: transform var(--transition), opacity calc(var(--transition) * 1.1) linear;
+	opacity: 0;
+	transform: scale(0);
+	filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
 }
-
 label .cover-checkbox svg {
-    width: 15px;
-    height: 10px;
-    display: inline-block;
-    vertical-align: center;
-    fill: none;
-    margin: 0px 0 0 5px;
-    stroke: #5ec15d;
-    stroke-width: 4;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 15px;
-    transition: stroke-dashoffset 0.15s ease var(--transition);
-    stroke-dashoffset: 15px;
-    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+	width: 15px;
+	height: 10px;
+	display: inline-block;
+	vertical-align: center;
+	fill: none;
+	margin: 0px 0 0 5px;
+	stroke: #5ec15d;
+	stroke-width: 4;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-dasharray: 15px;
+	transition: stroke-dashoffset 0.15s ease var(--transition);
+	stroke-dashoffset: 15px;
+	filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
 }
-
 label .info {
-    text-align: center;
-    margin-top: 2%;
-    font-weight: 600;
-    font-size: 70%;
-    white-space: nowrap;
-    /* Prevent text from wrapping */
-    text-overflow: ellipsis;
-    /* Show ellipsis (...) for overflowing text */
-    overflow: hidden;
-    /* Hide text that overflows */
+	text-align: center;
+	margin-top: 2%;
+	font-weight: 600;
+	font-size: 70%;
+	white-space: nowrap;
+	/* Prevent text from wrapping */
+	text-overflow: ellipsis;
+	/* Show ellipsis (...) for overflowing text */
+	overflow: hidden;
+	/* Hide text that overflows */
 }
-
 /* Style for the search and filter container */
 .searchandfilter {
-    margin: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    text-align: center;
+	margin: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	text-align: center;
 }
-
 /* Style for the search input */
 #foodSearch {
-    margin-top: 10px;
-    font-family: Kanit, sans-serif;
-    width: auto;
-    height: fit-content;
-    font-size: 14px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #333;
-    padding: 5px;
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+	margin-top: 10px;
+	font-family: Kanit, sans-serif;
+	width: auto;
+	height: fit-content;
+	font-size: 14px;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	background-color: #fff;
+	color: #333;
+	padding: 5px;
+	transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
 }
-
-#foodSearch:hover,
-#foodSearch:focus {
-    border-color: #1976D2;
-    /* Material Design blue on hover */
-    box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
-    /* Material Design blue shadow on hover */
-    color: #1976D2;
-    /* Material Design blue text color on hover */
+#foodSearch:hover,#foodSearch:focus {
+	border-color: #1976D2;
+	/* Material Design blue on hover */
+	box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
+	/* Material Design blue shadow on hover */
+	color: #1976D2;
+	/* Material Design blue text color on hover */
 }
-
 /* Style for the filter dropdown */
 #foodFilter {
-    text-align: center;
-    margin-top: 10px;
-    margin-right: 10px;
-    font-family: Kanit, sans-serif;
-    width: auto;
-    height: 35px;
-    font-size: 14px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #333;
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+	text-align: center;
+	margin-top: 10px;
+	margin-right: 10px;
+	font-family: Kanit, sans-serif;
+	width: auto;
+	height: 35px;
+	font-size: 14px;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	background-color: #fff;
+	color: #333;
+	transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-
 /* Style when the dropdown is focused */
 #foodFilter:focus {
-    border-color: #1976D2;
-    /* Material Design blue on focus */
-    box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
-    /* Material Design blue shadow on focus */
+	border-color: #1976D2;
+	/* Material Design blue on focus */
+	box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
+	/* Material Design blue shadow on focus */
 }
-
 /* Style for the options within the dropdown */
 #foodFilter option {
-    font-family: Kanit, sans-serif;
-    font-size: 16px;
-    padding: 5px;
-    background-color: #fff;
-    color: #333;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+	font-family: Kanit, sans-serif;
+	font-size: 16px;
+	padding: 5px;
+	background-color: #fff;
+	color: #333;
+	transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
-
 #foodFilter option:hover {
-    background-color: #1976D2;
-    color: #fff;
+	background-color: #1976D2;
+	color: #fff;
 }
-
 .addmealbuttons {
-    font-family: 'Kanit', sans-serif;
-    margin: 20px;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
+	font-family: 'Kanit', sans-serif;
+	margin: 20px;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
-
 /* Style for the "Add to Breakfast" button */
 #addBreakfast {
-    overflow: hidden;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-    font-family: 'Kanit', sans-serif;
-    width: 25%;
-    height: 40px;
-    border: none;
-    background-image: linear-gradient(to right, #41a783 0%, #93F9B9 51%, #1a835e 100%);
-    margin: 10px;
-    text-align: center;
-    text-transform: uppercase;
-    background-size: 200% auto;
-    color: white;
-    border-radius: 10px;
-    display: block;
-    transition: transform 0.3s ease;
+	overflow: hidden;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+	font-family: 'Kanit', sans-serif;
+	width: 25%;
+	height: 40px;
+	border: none;
+	background-image: linear-gradient(to right, #41a783 0%, #93F9B9 51%, #1a835e 100%);
+	margin: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	background-size: 200% auto;
+	color: white;
+	border-radius: 10px;
+	display: block;
+	transition: transform 0.3s ease;
 }
-
 /* Hover effect for the "Add to Breakfast" button */
 #addBreakfast:hover {
-    background-position: right center;
-    color: #fff;
-    text-decoration: none;
+	background-position: right center;
+	color: #fff;
+	text-decoration: none;
 }
-
 /* Clicked effect for the "Add to Breakfast" button */
 #addBreakfast:active {
-    opacity: 0.7;
-    transform: scale(0.8);
+	opacity: 0.7;
+	transform: scale(0.8);
 }
-
 /* Style for the "Add to Lunch" button */
 #addLunch {
-    overflow: hidden;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-    font-family: 'Kanit', sans-serif;
-    width: 25%;
-    height: 40px;
-    border: none;
-    background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%);
-    margin: 10px;
-    text-align: center;
-    text-transform: uppercase;
-    background-size: 200% auto;
-    color: white;
-    border-radius: 10px;
-    display: block;
-    transition: transform 0.3s ease;
+	overflow: hidden;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+	font-family: 'Kanit', sans-serif;
+	width: 25%;
+	height: 40px;
+	border: none;
+	background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%);
+	margin: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	background-size: 200% auto;
+	color: white;
+	border-radius: 10px;
+	display: block;
+	transition: transform 0.3s ease;
 }
-
 /* Hover effect for the "Add to Lunch" button */
 #addLunch:hover {
-    background-position: right center;
-    color: #fff;
-    text-decoration: none;
+	background-position: right center;
+	color: #fff;
+	text-decoration: none;
 }
-
 /* Clicked effect for the "Add to Lunch" button */
 #addLunch:active {
-    opacity: 0.7;
-    transform: scale(0.8);
+	opacity: 0.7;
+	transform: scale(0.8);
 }
-
 /* Style for the "Add to Dinner" button */
 #addDinner {
-    overflow: hidden;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-    font-family: 'Kanit', sans-serif;
-    width: 25%;
-    height: 40px;
-    border: none;
-    background-image: linear-gradient(to right, #FF512F 0%, #F09819 51%, #FF512F 100%);
-    margin: 10px;
-    text-align: center;
-    text-transform: uppercase;
-    background-size: 200% auto;
-    color: white;
-    border-radius: 10px;
-    display: block;
-    transition: transform 0.3s ease;
+	overflow: hidden;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+	font-family: 'Kanit', sans-serif;
+	width: 25%;
+	height: 40px;
+	border: none;
+	background-image: linear-gradient(to right, #FF512F 0%, #F09819 51%, #FF512F 100%);
+	margin: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	background-size: 200% auto;
+	color: white;
+	border-radius: 10px;
+	display: block;
+	transition: transform 0.3s ease;
 }
-
 /* Hover effect for the "Add to Dinner" button */
 #addDinner:hover {
-    background-position: right center;
-    color: #fff;
-    text-decoration: none;
+	background-position: right center;
+	color: #fff;
+	text-decoration: none;
 }
-
 /* Clicked effect for the "Add to Dinner" button */
 #addDinner:active {
-    opacity: 0.7;
-    transform: scale(0.8);
+	opacity: 0.7;
+	transform: scale(0.8);
 }
-
 .totalresult {
-    margin: 20px auto;
-    font-size: 24px;
-    display: flex;
-    height: auto;
-    max-width: 60vw;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-    border: 3px solid;
-    text-align: center;
-    background-color: #fff8b5;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-    color: white;
+	margin: 20px auto;
+	font-size: 24px;
+	display: flex;
+	height: auto;
+	max-width: 60vw;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-direction: column;
+	border: 3px solid;
+	text-align: center;
+	background-color: #fff8b5;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+	color: white;
 }
-
 #totalEatenText {
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: #1976D2;
-    width: 100%;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #1976D2;
+	width: 100%;
 }
-
 #kcal {
-    color: #2196F3;
-    padding-bottom: 5px;
+	color: #2196F3;
+	padding-bottom: 5px;
 }
-
 .totalinfo {
-    padding: 10px;
-    margin: 20px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    max-width: 40vw;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+	padding: 10px;
+	margin: 20px auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	max-width: 40vw;
 }
-
 #ltitle {
-    font-size: 20px;
-    color: #333;
+	font-size: 20px;
+	color: #333;
 }
-
 #suggestions {
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: #e2e2e2;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	font-size: 16px;
+	padding: 10px;
+	border-radius: 8px;
+	background-color: #e2e2e2;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .resetbutton {
-    margin: 10px;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: center;
 }
-
 .confetti-button {
-    display: inline-block;
-    font-size: 1em;
-    padding: 1em 2em;
-    margin-top: 2%;
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: #ff4800;
-    color: #fff;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-    box-shadow: 0 2px 25px #ffa14a;
-  }
-  .confetti-button:focus { outline: 0; }
-  
-  .confetti-button:before, .confetti-button:after {
-    position: absolute;
-    content: '';
-    display: block;
-    width: 140%;
-    height: 100%;
-    left: -20%;
-    z-index: -1000;
-    transition: all ease-in-out 0.5s;
-    background-repeat: no-repeat;
-  }
-  .confetti-button:before {
-    display: none;
-    top: -75%;
-    background-image: radial-gradient(circle, #ff4800 20%, transparent 20%),
-     radial-gradient(circle, transparent 20%, #ff4800 20%, transparent 30%),
-     radial-gradient(circle, #ff4800 20%, transparent 20%), 
-     radial-gradient(circle, #ff4800 20%, transparent 20%), 
-     radial-gradient(circle, transparent 10%, #ff4800 15%, transparent 20%), 
-     radial-gradient(circle, #ff4800 20%, transparent 20%), 
-     radial-gradient(circle, #ff4800 20%, transparent 20%),
-     radial-gradient(circle, #ff4800 20%, transparent 20%),
-     radial-gradient(circle, #ff4800 20%, transparent 20%);
-    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
-     10% 10%, 18% 18%;
-  }
-   .confetti-button:after {
-    display: none;
-    bottom: -75%;
-    background-image: radial-gradient(circle, #ff4800 20%, transparent 20%),
-     radial-gradient(circle, #ff4800 20%, transparent 20%), 
-     radial-gradient(circle, transparent 10%, #ff4800 15%, transparent 20%), 
-     radial-gradient(circle, #ff4800 20%, transparent 20%),
-     radial-gradient(circle, #ff4800 20%, transparent 20%),
-     radial-gradient(circle, #ff4800 20%, transparent 20%),
-     radial-gradient(circle, #ff4800 20%, transparent 20%);
-    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
-  }
-  
-  .confetti-button:active {
-    transform: scale(0.9);
-    background-color: #914201;
-    box-shadow: 0 2px 25px rgba(255, 94, 0, 0.2);
-  }
-  
-  .confetti-button.animate:before {
-    display: block;
-    animation: topBubbles ease-in-out 0.75s forwards;
-  }
-  
-  .confetti-button.animate:after {
-    display: block;
-    animation: bottomBubbles ease-in-out 0.75s forwards;
-  }
-   @keyframes
+	display: inline-block;
+	font-size: 1em;
+	padding: 1em 2em;
+	margin-top: 2%;
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: #ff4800;
+	color: #fff;
+	border-radius: 4px;
+	border: none;
+	cursor: pointer;
+	position: relative;
+	transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+	box-shadow: 0 2px 25px #ffa14a;
+}
+.confetti-button:focus {
+	outline: 0;
+}
+.confetti-button:before, .confetti-button:after {
+	position: absolute;
+	content: '';
+	display: block;
+	width: 140%;
+	height: 100%;
+	left: -20%;
+	z-index: -1000;
+	transition: all ease-in-out 0.5s;
+	background-repeat: no-repeat;
+}
+.confetti-button:before {
+	display: none;
+	top: -75%;
+	background-image: radial-gradient(circle, #ff4800 20%, transparent 20%),radial-gradient(circle, transparent 20%, #ff4800 20%, transparent 30%),radial-gradient(circle, #ff4800 20%, transparent 20%),radial-gradient(circle, #ff4800 20%, transparent 20%),radial-gradient(circle, transparent 10%, #ff4800 15%, transparent 20%),radial-gradient(circle, #ff4800 20%, transparent 20%),radial-gradient(circle, #ff4800 20%, transparent 20%),radial-gradient(circle, #ff4800 20%, transparent 20%),radial-gradient(circle, #ff4800 20%, transparent 20%);
+	background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,10% 10%, 18% 18%;
+}
+.confetti-button:after {
+	display: none;
+	bottom: -75%;
+	background-image: radial-gradient(circle, #ff4800 20%, transparent 20%),radial-gradient(circle, #ff4800 20%, transparent 20%),radial-gradient(circle, transparent 10%, #ff4800 15%, transparent 20%),radial-gradient(circle, #ff4800 20%, transparent 20%),radial-gradient(circle, #ff4800 20%, transparent 20%),radial-gradient(circle, #ff4800 20%, transparent 20%),radial-gradient(circle, #ff4800 20%, transparent 20%);
+	background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+.confetti-button:active {
+	transform: scale(0.9);
+	background-color: #914201;
+	box-shadow: 0 2px 25px rgba(255, 94, 0, 0.2);
+}
+.confetti-button.animate:before {
+	display: block;
+	animation: topBubbles ease-in-out 0.75s forwards;
+}
+.confetti-button.animate:after {
+	display: block;
+	animation: bottomBubbles ease-in-out 0.75s forwards;
+}
+@keyframes
   topBubbles {  0% {
    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 
    55% 90%, 70% 90%;
@@ -823,8 +742,8 @@ label .info {
     65% 10%, 90% 20%;
    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
-  }
-  @keyframes
+}
+@keyframes
   bottomBubbles {  0% {
    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
   }
@@ -835,4 +754,4 @@ label .info {
    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
-  }
+}
