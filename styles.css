@@ -345,10 +345,10 @@ button.delete-button:hover {
 	border-radius: var(--border-radius);
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 	background: rgb(240, 240, 240);
-	transition: opacity 0.5s, transform 0.5s;
 	opacity: 0.1;
 	transform: translateY(20px);
 	/* Move the items down initially */
+	transition: opacity 0.5s, transform 0.5s;
 }
 .itemcheckbox.show {
 	opacity: 1;
