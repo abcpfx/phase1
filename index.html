@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
     <title>โปรแกรมคำนวณพลังงานอาหาร</title>
     <link rel="icon" type="image/x-icon" href="/items/favicon.ico">
@@ -27,7 +27,7 @@
         <h2>เลือกเมนูอาหาร</h2>
     </div>
     <div class="searchandfilter" tabindex="0">
-        <select id="foodFilter">
+        <select id="foodFilter" title="เลือกประเภทอาหาร">
             <option value="all" disabled selected hidden>เลือกประเภทอาหาร</option>
             <option value="all">ทุกประเภท</option>
             <option value="main" style="color: #e41a1c;">อาหารจานเดียว</option>
@@ -45,7 +45,7 @@
     </div>
 
     <div class="sortbtn">
-        <select id="sortOrder" onchange="sortCheckOrder(this.value)">
+        <select id="sortOrder" title="การเรียงลำดับ" onchange="sortCheckOrder(this.value)">
             <option value="default" disabled selected hidden>เรียงจาก</option>
             <option value="default">เรียงตามประเภท</option>
             <option value="asc">น้อยไปหามาก</option>
