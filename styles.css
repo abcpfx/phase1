@@ -362,7 +362,7 @@ button.delete-button:hover {
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	width: 95vw;
 	/* Set the width as needed */
-	max-height: 40vh;
+	max-height: 30vh;
 	/* Set the height as needed */
 	border: none;
 	/* Optional: Add a border for styling */
@@ -664,7 +664,7 @@ label .info {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	max-width: 40vw;
+	max-width: 50vw;
 }
 #ltitle {
 	font-size: 20px;
