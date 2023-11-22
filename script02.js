@@ -152,7 +152,7 @@ document.getElementById("addRandomLunch").addEventListener("click", () => {
 document.getElementById("addRandomDinner").addEventListener("click", () => {
 	addRandomFoodToMeal("dinner");
 });
-
+// reserved function for future phase.
 function addRandomFoodToMeal(mealTime) {
 	const selectedFoodItems = [];
 	// Filter food items by data-food-type
