@@ -106,7 +106,6 @@ h2 {
 	transition: 0.5s;
 	background-size: 200% auto;
 	color: rgb(255, 255, 255);
-	box-shadow: 0 0 20px #eee;
 	display: inline-block;
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -346,11 +345,10 @@ button.delete-button:hover {
 	border-radius: var(--border-radius);
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 	background: rgb(240, 240, 240);
-	transition: transform var(--transition);
+	transition: opacity 0.5s, transform 0.5s;
 	opacity: 0.1;
 	transform: translateY(20px);
 	/* Move the items down initially */
-	transition: opacity 0.5s, transform 0.5s;
 }
 .itemcheckbox.show {
 	opacity: 1;
