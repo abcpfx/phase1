@@ -93,6 +93,8 @@ let selectedItems = {
 	lunch: [],
 	dinner: [],
 };
+// Store the currently selected category
+let currentCategory = "lunchResult";
 foodItems.forEach((checkbox) => {
 	checkbox.addEventListener("change", updateSelection);
 });
@@ -105,11 +107,6 @@ document.getElementById("addLunch").addEventListener("click", () => {
 document.getElementById("addDinner").addEventListener("click", () => {
 	addToMealTime("dinner");
 });
-foodItems.forEach((checkbox) => {
-	checkbox.addEventListener("change", updateSelection);
-});
-// Store the currently selected category
-let currentCategory = "lunchResult";
 
 function addToMealTime(mealTime) {
 	const selectedFoodItems = Array.from(foodItems).filter((checkbox) => {
@@ -283,59 +280,63 @@ function deleteItem(itemName, mealTime) {
 }
 
 function animateTotalCaloriesForMealtime(totalCaloriesElement, mealItems) {
-	const totalCalories = calculateTotalCalories(mealItems);
-	if(totalCaloriesElement.dataset.isAnimating === "true") {
-		return; // Animation is already in progress
-	}
-	totalCaloriesElement.dataset.isAnimating = "true"; // Set the flag
-	const duration = 500; // Animation duration in milliseconds
-	const frames = 15; // Number of frames
-	const initialFontSize = 16; // Starting font size
-	const maxFontSize = 20; // Maximum font size
-	const fontSizeIncrement = (maxFontSize - initialFontSize) / frames;
-	let currentFontSize = initialFontSize;
-	const increment = totalCalories / (duration / frames);
-	let currentValue = parseFloat(totalCaloriesElement.textContent.match(/\d+/)); // Get the current value
-	const updateValue = () => {
-		if(currentValue < totalCalories) {
-			totalCaloriesElement.textContent = `แคลอรี่ทั้งหมด : ${Math.round(currentValue)} กิโลแคลอรี่`;
-			totalCaloriesElement.style.fontSize = `${currentFontSize}px`; // Update font size
-			currentValue += increment;
-			currentFontSize += fontSizeIncrement; // Increment font size
-			requestAnimationFrame(updateValue);
-		} else {
-			totalCaloriesElement.textContent = `แคลอรี่ทั้งหมด : ${totalCalories} กิโลแคลอรี่`;
-			totalCaloriesElement.style.fontSize = `${maxFontSize}px`; // Set to maximum font size
-			totalCaloriesElement.dataset.isAnimating = "false"; // Reset the flag when the animation is complete
-		}
-	};
-	updateValue();
+    const totalCalories = calculateTotalCalories(mealItems);
+    if (totalCaloriesElement.dataset.isAnimating === "true") {
+        return; // Animation is already in progress
+    }
+    totalCaloriesElement.dataset.isAnimating = "true"; // Set the flag
+    const duration = 500; // Animation duration in milliseconds
+    const frames = 15; // Number of frames
+    const initialFontSize = 14; // Starting font size
+    const maxFontSize = 18; // Maximum font size
+    const fontSizeIncrement = (maxFontSize - initialFontSize) / frames;
+    let currentFontSize = initialFontSize;
+    const increment = totalCalories / (duration / frames);
+    let currentValue = parseFloat(totalCaloriesElement.textContent.match(/\d+/)); // Get the current value
+    const updateValue = () => {
+        if (currentValue < totalCalories) {
+            // Use toLocaleString to add a thousand separator
+            totalCaloriesElement.textContent = `แคลอรี่ทั้งหมด : ${Math.round(currentValue).toLocaleString()} กิโลแคลอรี่`;
+            totalCaloriesElement.style.fontSize = `${currentFontSize}px`; // Update font size
+            currentFontSize += fontSizeIncrement; // Increment font size
+            currentValue += increment;
+            requestAnimationFrame(updateValue);
+        } else {
+            // Use toLocaleString to add a thousand separator
+            totalCaloriesElement.textContent = `แคลอรี่ทั้งหมด : ${totalCalories.toLocaleString()} กิโลแคลอรี่`;
+            totalCaloriesElement.style.fontSize = `${maxFontSize}px`; // Set to maximum font size
+            totalCaloriesElement.dataset.isAnimating = "false"; // Reset the flag when the animation is complete
+        }
+    };
+    updateValue();
 }
 
 function animateCounting(element, targetValue) {
-	const duration = 500; // Animation duration in milliseconds
-	const frames = 15; // Number of frames
-	const initialFontSize = 18; // Starting font size
-	const maxFontSize = 26; // Maximum font size
-	const fontSizeIncrement = (maxFontSize - initialFontSize) / frames;
-	// Cubic ease-out easing function
-	const easing = t => 1 - Math.pow(1 - t, 3);
-	const increment = targetValue / (duration / frames);
-	let currentValue = 0;
-	let currentFontSize = initialFontSize;
-	const updateValue = () => {
-		if(currentValue < targetValue) {
-			const easedProgress = easing(currentValue / targetValue);
-			element.textContent = Math.round(currentValue);
-			element.style.fontSize = `${initialFontSize + easedProgress * (maxFontSize - initialFontSize)}px`;
-			currentValue += increment;
-			requestAnimationFrame(updateValue);
-		} else {
-			element.textContent = targetValue;
-			element.style.fontSize = `${maxFontSize}px`;
-		}
-	};
-	updateValue();
+    const duration = 500; // Animation duration in milliseconds
+    const frames = 15; // Number of frames
+    const initialFontSize = 18; // Starting font size
+    const maxFontSize = 26; // Maximum font size
+    const fontSizeIncrement = (maxFontSize - initialFontSize) / frames;
+    // Cubic ease-out easing function
+    const easing = t => 1 - Math.pow(1 - t, 3);
+    const increment = targetValue / (duration / frames);
+    let currentValue = 0;
+    let currentFontSize = initialFontSize;
+    const updateValue = () => {
+        if (currentValue < targetValue) {
+            const easedProgress = easing(currentValue / targetValue);
+            // Use toLocaleString to add a thousand separator
+            element.textContent = Math.round(currentValue).toLocaleString();
+            element.style.fontSize = `${initialFontSize + easedProgress * (maxFontSize - initialFontSize)}px`;
+            currentValue += increment;
+            requestAnimationFrame(updateValue);
+        } else {
+            // Use toLocaleString to add a thousand separator
+            element.textContent = targetValue.toLocaleString();
+            element.style.fontSize = `${maxFontSize}px`;
+        }
+    };
+    updateValue();
 }
 
 function getColorForValue(value) {
