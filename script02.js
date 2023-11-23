@@ -95,9 +95,6 @@ let selectedItems = {
 };
 // Store the currently selected category
 let currentCategory = "lunchResult";
-foodItems.forEach((checkbox) => {
-	checkbox.addEventListener("change", updateSelection);
-});
 document.getElementById("addBreakfast").addEventListener("click", () => {
 	addToMealTime("breakfast");
 });
@@ -131,6 +128,9 @@ function addToMealTime(mealTime) {
 			selectedItems[mealTime].push(foodItem);
 		}
 	});
+	// Add the class with the slide-in animation to the updated mealtime result element
+    const mealtimeResultElement = document.getElementById(`${mealTime}Items`);
+    mealtimeResultElement.classList.add('slideIn');
 	// Call the updateSelection function to update the UI with the selected items
 	updateSelection();
 	// Remove the border from the previously selected category
@@ -222,7 +222,7 @@ function getBorderColor(category) {
 }
 
 function calculateTotalCalories(items) {
-	return items.reduce((total, item) => total + item.calories, 0);
+    return items.reduce((total, item) => total + (item.calories * item.count), 0);
 }
 
 function updateSelection() {
@@ -256,27 +256,38 @@ function updateSelection() {
 }
 
 function updateMealtimeResult(resultElement, items, mealTime) {
-	const listElement = resultElement.querySelector("ul");
-	listElement.innerHTML = "";
-	items.forEach((item) => {
-		const listItem = document.createElement("li");
-		// Create the delete button with the "delete-button" class
-		const deleteButton = document.createElement("button");
-		deleteButton.textContent = "ลบ";
-		deleteButton.className = "delete-button"; // Apply the CSS class
-		deleteButton.addEventListener("click", () => {
-			deleteItem(item.name, mealTime);
-		});
-		// Display the count along with the item name and image
-		listItem.innerHTML = `${item.count} x <img src="${item.image}" alt="${item.name}"> ${item.name}`;
-		listItem.appendChild(deleteButton);
-		listElement.appendChild(listItem);
-	});
+    const listElement = resultElement.querySelector("ul");
+    listElement.innerHTML = "";
+    items.forEach((item) => {
+        const listItem = document.createElement("li");
+        // Create the delete button with the "delete-button" class
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "delete";
+        deleteButton.className = "delete-button"; // Apply the CSS class
+        deleteButton.addEventListener("click", () => {
+            deleteItemWithAnimation(listItem, item.name, mealTime);
+        });
+        // Display the count along with the item name and image
+        listItem.innerHTML = `${item.count} x <img src="${item.image}" alt="${item.name}"> ${item.name}`;
+        listItem.appendChild(deleteButton);
+        listElement.appendChild(listItem);
+    });
 }
 
-function deleteItem(itemName, mealTime) {
-	selectedItems[mealTime] = selectedItems[mealTime].filter((item) => item.name !== itemName);
-	updateSelection();
+function deleteItemWithAnimation(listItem, itemName, mealTime) {
+    // Apply a CSS class to initiate the delete animation
+    listItem.classList.add('delete-animation');
+    // Wait for the animation to complete before removing the item from the list
+    listItem.addEventListener('animationend', () => {
+        // Remove the CSS class after the animation completes
+        listItem.classList.remove('delete-animation');
+        // Remove the list item from the DOM
+        listItem.remove();
+        // Remove the item from the selected items array
+        selectedItems[mealTime] = selectedItems[mealTime].filter((item) => item.name !== itemName);
+        // Update the selection and other UI elements
+        updateSelection();
+    });
 }
 
 function animateTotalCaloriesForMealtime(totalCaloriesElement, mealItems) {
@@ -295,16 +306,15 @@ function animateTotalCaloriesForMealtime(totalCaloriesElement, mealItems) {
     let currentValue = parseFloat(totalCaloriesElement.textContent.match(/\d+/)); // Get the current value
     const updateValue = () => {
         if (currentValue < totalCalories) {
-            // Use toLocaleString to add a thousand separator
-            totalCaloriesElement.textContent = `แคลอรี่ทั้งหมด : ${Math.round(currentValue).toLocaleString()} กิโลแคลอรี่`;
-            totalCaloriesElement.style.fontSize = `${currentFontSize}px`; // Update font size
+            // Animate only the numerical part of the content
+            totalCaloriesElement.innerHTML = `แคลอรี่ทั้งหมด : <span style="font-size: ${currentFontSize}px;">${Math.round(currentValue).toLocaleString()}</span> กิโลแคลอรี่`;
+
             currentFontSize += fontSizeIncrement; // Increment font size
             currentValue += increment;
             requestAnimationFrame(updateValue);
         } else {
-            // Use toLocaleString to add a thousand separator
-            totalCaloriesElement.textContent = `แคลอรี่ทั้งหมด : ${totalCalories.toLocaleString()} กิโลแคลอรี่`;
-            totalCaloriesElement.style.fontSize = `${maxFontSize}px`; // Set to maximum font size
+            // Animate only the numerical part of the content
+            totalCaloriesElement.innerHTML = `แคลอรี่ทั้งหมด : <span style="font-size: ${maxFontSize}px;">${totalCalories.toLocaleString()}</span> กิโลแคลอรี่`;
             totalCaloriesElement.dataset.isAnimating = "false"; // Reset the flag when the animation is complete
         }
     };
@@ -383,7 +393,7 @@ function updateSuggestions(value) {
 			suggestionColor = 'red';
 			break;
 		default:
-			suggestionText = 'Unknown';
+			suggestionText = 'ค่าผิดพลาด';
 			suggestionColor = 'gray';
 			break;
 	}

@@ -6,6 +6,13 @@ body {
 	padding: 0;
 	background-color: #f5f5f5;
 }
+.version {
+	width: auto;
+	text-align: right;
+	display: block;
+	font-size: small;
+	color: #333;
+}
 h1,h3 {
 	margin: 0 auto;
 }
@@ -267,6 +274,22 @@ h2:hover {
 	align-items: center;
 	margin: 4px 0;
 }
+/* Apply the animation to the mealtime result elements */
+#breakfastItems.slideIn,
+#lunchItems.slideIn,
+#dinnerItems.slideIn {
+    animation: slideIn 1s ease-in-out;
+}
+@keyframes slideIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 #breakfastItems ul,#lunchItems ul,#dinnerItems ul {
     padding-left: 0px;
 }
@@ -287,6 +310,21 @@ button.delete-button {
 button.delete-button:hover {
 	background-color: #d32f2f;
 	/* Darker red on hover */
+}
+/* CSS for delete animation */
+@keyframes deleteAnimation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+/* Apply the animation to the list item */
+.delete-animation {
+    animation: deleteAnimation 0.3s ease-in-out;
 }
 /* Styles for reset buttons */
 .reset-button {
@@ -519,7 +557,7 @@ label .info {
 	color: white;
 	border-radius: 10px;
 	display: block;
-	transition: transform 0.3s ease;
+	transition: transform 0.1s ease;
     border-bottom: solid 1px rgb(119, 119, 119);
 }
 /* Hover effect for the "Add to Breakfast" button */
