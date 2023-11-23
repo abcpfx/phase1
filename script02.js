@@ -262,7 +262,7 @@ function updateMealtimeResult(resultElement, items, mealTime) {
         const listItem = document.createElement("li");
         // Create the delete button with the "delete-button" class
         const deleteButton = document.createElement("button");
-        deleteButton.textContent = "delete";
+        deleteButton.textContent = "ลบ";
         deleteButton.className = "delete-button"; // Apply the CSS class
         deleteButton.addEventListener("click", () => {
             deleteItemWithAnimation(listItem, item.name, mealTime);
