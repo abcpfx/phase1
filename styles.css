@@ -14,31 +14,19 @@ h1,h3 {
 	.rsimg {
 		max-width: 90%;
 	}
-	.fooditems {
-		display: flex;
-		flex-wrap: wrap;
-	}
 	.itemcheckbox {
-		width: 25%;
 		padding: 5px;
 	}
 	.info {
 		font-size: 14px;
 	}
 	.addmealbuttons {
-		font-family: 'Kanit', sans-serif;
-		display: flex;
 		flex-direction: column;
-		align-items: center;
 	}
 }
 @media (min-width: 769px) and (max-width: 1024px) {
 	.rsimg {
 		max-width: 90%;
-	}
-	.fooditems {
-		padding: 10px;
-		margin: 5px;
 	}
 	.itemcheckbox {
 		width: 30%;
@@ -48,19 +36,12 @@ h1,h3 {
 		font-size: 14px;
 	}
 	.addmealbuttons {
-		font-family: 'Kanit', sans-serif;
-		display: flex;
 		flex-direction: column;
-		align-items: center;
 	}
 }
 @media (min-width: 1025px) {
 	.rsimg {
 		max-width: 90%;
-	}
-	.fooditems {
-		display: flex;
-		flex-wrap: wrap;
 	}
 	.itemcheckbox {
 		width: 25%;
@@ -70,7 +51,6 @@ h1,h3 {
 /* Other Styles */
 * {
 	font-family: 'Kanit', sans-serif;
-	--transition: 0.1s;
 }
 h1 {
 	text-align: center;
@@ -311,7 +291,6 @@ button.delete-button:hover {
 /* Styles for reset buttons */
 .reset-button {
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 3px rgba(0, 0, 0, 0.24);
-	font-family: 'Kanit', sans-serif;
 	width: 120px;
 	height: 36px;
 	background-color: #B00020;
@@ -342,20 +321,19 @@ button.delete-button:hover {
 	margin: 2px;
 	width: 90px;
 	height: 110px;
-	border-radius: var(--border-radius);
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-	background: rgb(240, 240, 240);
+	background: rgb(255, 255, 255);
 	opacity: 0.1;
 	transform: translateY(20px);
 	/* Move the items down initially */
-	transition: opacity 0.5s, transform 0.5s;
+	transition: opacity 0.5s, transform 0.15s;
 }
 .itemcheckbox.show {
 	opacity: 1;
 	transform: translateY(0);
 }
 .itemcheckbox:active {
-	transform: scale(0.8);
+	transform: scale(0.75);
 }
 .fooditems {
 	padding-top: 10px;
@@ -395,7 +373,6 @@ input[type="checkbox"]:checked+label .cover-checkbox svg {
 label {
 	display: inline-block;
 	cursor: pointer;
-	border-radius: var(--border-radius);
 	overflow: hidden;
 	width: 100%;
 	height: 100%;
@@ -420,7 +397,7 @@ label .cover-checkbox {
 	border-radius: 50%;
 	background: var(--box-shadow);
 	border: 5px solid #5ec15d;
-	transition: transform var(--transition), opacity calc(var(--transition) * 1.1) linear;
+	transition: transform 0.15s, opacity 0.3s linear;
 	opacity: 0;
 	transform: scale(0);
 	filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
@@ -437,7 +414,7 @@ label .cover-checkbox svg {
 	stroke-linecap: round;
 	stroke-linejoin: round;
 	stroke-dasharray: 15px;
-	transition: stroke-dashoffset 0.15s ease var(--transition);
+	transition: stroke-dashoffset 0.15s ease 0.15s;
 	stroke-dashoffset: 15px;
 	filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
 }
@@ -518,7 +495,6 @@ label .info {
 	color: #fff;
 }
 .addmealbuttons {
-	font-family: 'Kanit', sans-serif;
 	margin: 10px;
 	display: flex;
 	align-items: center;
@@ -532,7 +508,6 @@ label .info {
 	overflow: hidden;
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-	font-family: 'Kanit', sans-serif;
 	width: 25%;
 	height: 40px;
 	border: none;
@@ -564,7 +539,6 @@ label .info {
 	overflow: hidden;
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-	font-family: 'Kanit', sans-serif;
 	width: 25%;
 	height: 40px;
 	border: none;
@@ -596,7 +570,6 @@ label .info {
 	overflow: hidden;
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-	font-family: 'Kanit', sans-serif;
 	width: 25%;
 	height: 40px;
 	border: none;
