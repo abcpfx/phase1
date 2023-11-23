@@ -278,7 +278,7 @@ h2:hover {
 #breakfastItems.slideIn,
 #lunchItems.slideIn,
 #dinnerItems.slideIn {
-    animation: slideIn 1s ease-in-out;
+    animation: slideIn 0.5s ease-in-out;
 }
 @keyframes slideIn {
     0% {
@@ -312,22 +312,23 @@ button.delete-button:hover {
 	/* Darker red on hover */
 }
 /* CSS for delete animation */
-@keyframes deleteAnimation {
+@keyframes slideOut {
     0% {
-        transform: scale(1);
+        transform: translateY(0px);
         opacity: 1;
     }
     100% {
-        transform: scale(0);
+        transform: translateY(20px);
         opacity: 0;
     }
 }
 /* Apply the animation to the list item */
 .delete-animation {
-    animation: deleteAnimation 0.3s ease-in-out;
+    animation: slideOut 0.3s ease-in-out;
 }
 /* Styles for reset buttons */
 .reset-button {
+	border-bottom: solid 2px rgb(119, 119, 119);
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 3px rgba(0, 0, 0, 0.24);
 	width: 120px;
 	height: 36px;
@@ -336,7 +337,7 @@ button.delete-button:hover {
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
-	margin: 8px auto;
+	margin: 8px;
 	text-transform: uppercase;
 	font-weight: 500;
     font-size: 0.9em;
@@ -364,13 +365,14 @@ button.delete-button:hover {
 	opacity: 0.1;
 	transform: translateY(20px);
 	/* Move the items down initially */
-	transition: opacity 0.5s, transform 0.15s;
+	transition: opacity 0.5s, transform 0.5s;
 }
 .itemcheckbox.show {
 	opacity: 1;
 	transform: translateY(0);
 }
 .itemcheckbox:active {
+	transition: 0.15s;
 	transform: scale(0.75);
 }
 .fooditems {

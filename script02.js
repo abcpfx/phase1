@@ -70,7 +70,7 @@ function animateItems() {
 		// Add a class with a delay based on the index
 		setTimeout(function() {
 			item.classList.add('show');
-		}, index * 75); // Adjust the delay as needed
+		}, index * 100); // Adjust the delay as needed
 	});
 }
 // Event listener for scroll
@@ -229,12 +229,28 @@ function updateSelection() {
 	const breakfastItemsElement = document.getElementById("breakfastItems");
 	const lunchItemsElement = document.getElementById("lunchItems");
 	const dinnerItemsElement = document.getElementById("dinnerItems");
+	// Keep track of the previous state
+	const prevSelectedItems = {
+		breakfast: [...selectedItems.breakfast],
+		lunch: [...selectedItems.lunch],
+		dinner: [...selectedItems.dinner],
+	};
 	// Update the breakfastItems element
 	updateMealtimeResult(breakfastItemsElement, selectedItems.breakfast, "breakfast");
 	// Update the lunchItems element
 	updateMealtimeResult(lunchItemsElement, selectedItems.lunch, "lunch");
 	// Update the dinnerItems element
 	updateMealtimeResult(dinnerItemsElement, selectedItems.dinner, "dinner");
+	// Animate the total calorie counts only if the categories have changed
+	if (!arraysEqual(prevSelectedItems.breakfast, selectedItems.breakfast)) {
+		animateTotalCaloriesForMealtime(document.getElementById("breakfastTotalCalories"), selectedItems.breakfast);
+	}
+	if (!arraysEqual(prevSelectedItems.lunch, selectedItems.lunch)) {
+		animateTotalCaloriesForMealtime(document.getElementById("lunchTotalCalories"), selectedItems.lunch);
+	}
+	if (!arraysEqual(prevSelectedItems.dinner, selectedItems.dinner)) {
+		animateTotalCaloriesForMealtime(document.getElementById("dinnerTotalCalories"), selectedItems.dinner);
+	}
 	// Animate the total calorie counts for each mealtime individually
 	animateTotalCaloriesForMealtime(document.getElementById("breakfastTotalCalories"), selectedItems.breakfast);
 	animateTotalCaloriesForMealtime(document.getElementById("lunchTotalCalories"), selectedItems.lunch);
@@ -253,6 +269,10 @@ function updateSelection() {
 	animateCounting(totalCaloriesSpan, totalCalories);
 	// Update suggestions based on total calories
 	updateSuggestions(totalCalories);
+}
+// Helper function to check if two arrays are equal
+function arraysEqual(arr1, arr2) {
+	return JSON.stringify(arr1) === JSON.stringify(arr2);
 }
 
 function updateMealtimeResult(resultElement, items, mealTime) {
