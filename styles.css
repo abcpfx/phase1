@@ -353,6 +353,7 @@ button.delete-button:hover {
 	border-radius: 4px;
 }
 .itemcheckbox {
+	padding: 5px;
 	border: 1px solid;
 	flex-direction: row;
 	margin: 2px;
