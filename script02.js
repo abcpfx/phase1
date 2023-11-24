@@ -128,6 +128,23 @@ function addToMealTime(mealTime) {
 			selectedItems[mealTime].push(foodItem);
 		}
 	});
+	// Get the fooditems div
+    const foodItemsDiv = document.getElementById("fooditems");
+    // Set border color based on meal type
+    switch (mealTime){
+        case "breakfast":
+            foodItemsDiv.style.borderColor = "#93F9B9";
+            break;
+        case "lunch":
+            foodItemsDiv.style.borderColor = "#12D8FA";
+            break;
+        case "dinner":
+            foodItemsDiv.style.borderColor = "#F09819";
+            break;
+        default:
+            // Default color if the meal type is not recognized
+            foodItemsDiv.style.borderColor = "#000000";
+    }
 	// Add the class with the slide-in animation to the updated mealtime result element
     const mealtimeResultElement = document.getElementById(`${mealTime}Items`);
     mealtimeResultElement.classList.add('slideIn');

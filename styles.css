@@ -152,7 +152,6 @@ h2:hover {
     margin-right: 2%;
     margin-bottom: 5px;
 	width: 150px;
-	/* Adjust the width as needed */
 	max-height: fit-content;
 	font-size: 14px;
 	border: 2px solid #ccc;
@@ -390,6 +389,7 @@ button.delete-button:hover {
 	border-color: black;
 }
 .fooditems {
+	border: 2px solid;
 	padding-top: 10px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	width: 95vw;
@@ -397,8 +397,6 @@ button.delete-button:hover {
 	height: 35vh;
 	max-height: 50vh;
 	/* Set the height as needed */
-	border: none;
-	/* Optional: Add a border for styling */
 	overflow: auto;
 	/* Enable vertical and/or horizontal scrolling as needed */
 	margin: 0 auto;
