@@ -55,7 +55,6 @@ h1,h3 {
 		padding: 10px;
 	}
 }
-/* Other Styles */
 * {
 	font-family: 'Kanit', sans-serif;
 }
@@ -356,6 +355,7 @@ button.delete-button:hover {
 	border-radius: 4px;
 }
 .itemcheckbox {
+	border: 1px solid;
 	flex-direction: row;
 	margin: 2px;
 	width: 90px;
@@ -374,6 +374,21 @@ button.delete-button:hover {
 .itemcheckbox:active {
 	transition: 0.15s;
 	transform: scale(0.75);
+}
+#main {
+	border-color: #e41a1c;
+}
+#others {
+	border-color: #377eb8;
+}
+#snacks {
+	border-color: #4daf4a;
+}
+#drinks {
+	border-color: #984ea3;
+}
+#default {
+	border-color: black;
 }
 .fooditems {
 	padding-top: 10px;

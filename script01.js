@@ -111,44 +111,54 @@ const items =
     { id: "snacks031", name: "อัลมอนด์อบเกลือ", foodType: "snacks", calories: 200, image: "/items/snacks031.webp" },
     { id: "snacks032", name: "ลูกเกดดำ ทองการ์เด้น", foodType: "snacks", calories: 90, image: "/items/snacks032.webp" }
     ];
-    function generateItemHTML(item) {
-        let borderColor;
-        // Set border color based on food type
-        switch(item.foodType) {
-            case 'main':
-                borderColor = '#e41a1c';
-                break;
-            case 'others':
-                borderColor = '#377eb8';
-                break;
-            case 'snacks':
-                borderColor = '#4daf4a';
-                break;
-            case 'drinks':
-                borderColor = '#984ea3';
-                break;
-            default:
-                borderColor = 'black'; // Default color for undefined cases
-                break;
-        }
-        return `
-              <div class="itemcheckbox" style="border: 1px solid ${borderColor};">
-                  <input type="checkbox" id="${item.id}" name="foodItem" value="${item.name}" data-food-type="${item.foodType}" data-calories="${item.calories}" data-image="${item.image}">
-                  <label for="${item.id}">
-                      <img src="${item.image}" alt="${item.name}" loading="lazy" />
-                      <span class="cover-checkbox">
-                          <svg viewBox="0 0 12 10">
-                              <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                          </svg>
-                      </span>
-                      <div class="info">${item.name}<br>${item.calories} kcal</div>
-                  </label>
-              </div>
-          `;
-    }
-    // Get the container element
-    const foodItemsContainer = document.getElementById("fooditems");
-    // Loop through items and append HTML to container
-    items.forEach(item => {
-        foodItemsContainer.innerHTML += generateItemHTML(item);
-    });
+function generateItemHTML(item) {
+	const itemCheckbox = document.createElement('div');
+	itemCheckbox.id = item.foodType || 'default';
+	const checkboxInput = document.createElement('input');
+	checkboxInput.type = 'checkbox';
+	checkboxInput.id = item.id;
+	checkboxInput.name = 'foodItem';
+	checkboxInput.value = item.name;
+	checkboxInput.dataset.foodType = item.foodType;
+	checkboxInput.dataset.calories = item.calories;
+	checkboxInput.dataset.image = item.image;
+	const checkboxLabel = document.createElement('label');
+	checkboxLabel.setAttribute('for', item.id);
+	const image = document.createElement('img');
+	image.src = item.image;
+	image.alt = item.name;
+	image.loading = 'lazy';
+	const coverCheckbox = document.createElement('span');
+	coverCheckbox.className = 'cover-checkbox';
+	const svg = document.createElement('svg');
+	svg.setAttribute('viewBox', '0 0 12 10');
+	const polyline = document.createElement('polyline');
+	polyline.setAttribute('points', '1.5 6 4.5 9 10.5 1');
+	svg.appendChild(polyline);
+	coverCheckbox.appendChild(svg);
+	const info = document.createElement('div');
+	info.className = 'info';
+	const nameText = document.createTextNode(item.name);
+	const lineBreak = document.createElement('br');
+	const caloriesText = document.createTextNode(`${item.calories} kcal`);
+	info.appendChild(nameText);
+	info.appendChild(lineBreak);
+	info.appendChild(caloriesText);
+	checkboxLabel.appendChild(image);
+	checkboxLabel.appendChild(coverCheckbox);
+	checkboxLabel.appendChild(info);
+	itemCheckbox.appendChild(checkboxInput);
+	itemCheckbox.appendChild(checkboxLabel);
+	return itemCheckbox;
+}
+// Get the container element
+const foodItemsContainer = document.getElementById('fooditems');
+// Create a document fragment
+const fragment = document.createDocumentFragment();
+// Loop through items and append HTML to fragment
+items.forEach(item => {
+	const itemElement = generateItemHTML(item);
+	fragment.appendChild(itemElement);
+});
+// Append the fragment to the container
+foodItemsContainer.appendChild(fragment);

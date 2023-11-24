@@ -4,26 +4,24 @@
     <title>โปรแกรมคำนวณพลังงานอาหาร</title>
     <link rel="icon" type="image/x-icon" href="/items/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="script01.js" defer></script>
     <script src="script02.js" defer></script>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
     <meta http-equiv="Cache-Control" content="public, max-age=604800" />
-    <meta http-equiv="Set-Cookie" content="HttpOnly; Secure; SameSite=None">
 </head>
 <body>
 <div class="ms">
     <div class="head">
-        <img class="rsimg" src="items/h01.webp" alt="titleimg" loading="lazy" onload="this.classList.add('loaded')">
+        <img class="rsimg" src="items/h01.webp" alt="titleimg" onload="this.classList.add('loaded')">
     </div>
     
     <div class="head">
-        <img class="rsimg" src="items/h02.webp" alt="instructionsimg" loading="lazy" onload="this.classList.add('loaded')">
+        <img class="rsimg" src="items/h02.webp" alt="instructionsimg" onload="this.classList.add('loaded')">
     </div>
 
     <div class="version">
@@ -53,7 +51,7 @@
 
     <div class="sortbtn">
         <select id="sortOrder" title="การเรียงลำดับ" onchange="sortCheckOrder(this.value)">
-            <option value="default" disabled selected hidden>เรียงจาก</option>
+            <option value="" disabled selected hidden>เรียงจาก</option>
             <option value="default">เรียงตามประเภท</option>
             <option value="asc">น้อยไปหามาก</option>
             <option value="desc">มากไปหาน้อย</option>
@@ -118,7 +116,7 @@
     </div>
 
     <div class="head">
-        <img class="rsimg" src="items/h03.webp" alt="resultimg" loading="lazy" onload="this.classList.add('loaded')">
+        <img class="rsimg" src="items/h03.webp" alt="resultimg" onload="this.classList.add('loaded')">
     </div>
 
     <div class="resetbutton">

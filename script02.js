@@ -140,57 +140,6 @@ function addToMealTime(mealTime) {
 	// Update the currently selected category
 	currentCategory = `${mealTime}Result`;
 }
-document.getElementById("addRandomBreakfast").addEventListener("click", () => {
-	addRandomFoodToMeal("breakfast");
-});
-document.getElementById("addRandomLunch").addEventListener("click", () => {
-	addRandomFoodToMeal("lunch");
-});
-document.getElementById("addRandomDinner").addEventListener("click", () => {
-	addRandomFoodToMeal("dinner");
-});
-// reserved function for future phase.
-function addRandomFoodToMeal(mealTime) {
-	const selectedFoodItems = [];
-	// Filter food items by data-food-type
-	const filteredFoodItems = Array.from(foodItems).filter((checkbox) => {
-		return checkbox.getAttribute("data-food-type");
-	});
-	// Group food items by data-food-type
-	const groupedFoodItems = filteredFoodItems.reduce((groups, checkbox) => {
-		const foodType = checkbox.getAttribute("data-food-type");
-		(groups[foodType] = groups[foodType] || []).push(checkbox);
-		return groups;
-	}, {});
-	// Select one random food item from each data-food-type
-	for(const foodType in groupedFoodItems) {
-		const randomIndex = Math.floor(Math.random() * groupedFoodItems[foodType].length);
-		const selectedCheckbox = groupedFoodItems[foodType][randomIndex];
-		selectedFoodItems.push({
-			name: selectedCheckbox.value,
-			calories: parseInt(selectedCheckbox.getAttribute("data-calories"), 10),
-			image: selectedCheckbox.getAttribute("data-image"),
-		});
-	}
-	// Update the selected items for the specified meal time
-	selectedFoodItems.forEach((foodItem) => {
-		const existingItem = selectedItems[mealTime].find((item) => item.name === foodItem.name);
-		if(existingItem) {
-			existingItem.count++;
-		} else {
-			foodItem.count = 1;
-			selectedItems[mealTime].push(foodItem);
-		}
-	});
-	// Call the updateSelection function to update the UI with the selected items
-	updateSelection();
-	// Remove the border from the previously selected category
-	document.getElementById(`${currentCategory}`).style.border = "none";
-	// Scroll to the corresponding category
-	scrollToCategory(mealTime);
-	// Update the currently selected category
-	currentCategory = `${mealTime}Result`;
-}
 
 function scrollToCategory(category) {
 	const targetCategory = document.getElementById(`${category}Result`);
@@ -519,16 +468,7 @@ function moreThan250(calories) {
 // Attach the filter and search function to input change events
 document.getElementById("foodFilter").addEventListener("change", function() {
 	const filterType = document.getElementById("foodFilter").value;
-	// Add filter options for calories
-	if(filterType === "calories-less-than-100") {
-		filterAndSearchByCalories(lessThan100);
-	} else if(filterType === "calories-between-101-250") {
-		filterAndSearchByCalories(between101And250);
-	} else if(filterType === "calories-250-or-more") {
-		filterAndSearchByCalories(moreThan250);
-	} else {
-		filterAndSearch(filterType);
-	}
+	filterAndSearch(filterType);
 });
 document.getElementById("foodSearch").addEventListener("input", function() {
 	const filterType = document.getElementById("foodFilter").value;
