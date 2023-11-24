@@ -441,30 +441,6 @@ function filterAndSearch(filterType) {
 		}
 	});
 }
-// Add filter options for calories
-function filterAndSearchByCalories(caloriesFilter) {
-	const foodItems = document.querySelectorAll("input[name='foodItem']");
-	foodItems.forEach((checkbox) => {
-		const calories = checkbox.getAttribute("data-calories");
-		if(caloriesFilter(calories)) {
-			checkbox.parentElement.style.display = "block";
-		} else {
-			checkbox.parentElement.style.display = "none";
-		}
-	});
-}
-
-function lessThan100(calories) {
-	return calories < 100;
-}
-
-function between101And250(calories) {
-	return calories >= 101 && calories <= 250;
-}
-
-function moreThan250(calories) {
-	return calories > 250;
-}
 // Attach the filter and search function to input change events
 document.getElementById("foodFilter").addEventListener("change", function() {
 	const filterType = document.getElementById("foodFilter").value;

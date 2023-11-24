@@ -50,6 +50,8 @@ const items =
     { id: "main048", name: "ข้าวอบธัญพืชและไก่", foodType: "main", calories: 280, image: "/items/main048.webp" },
     { id: "main049", name: "ข้าวกล้องต้มไก่ทรงเครื่อง", foodType: "main", calories: 150, image: "/items/main049.webp" },
     { id: "main050", name: "ข้าวผัดไส้กรอก", foodType: "main", calories: 380, image: "/items/main050.webp" },
+
+    { id: "main088", name: "ข้าวเหนียวไก่ย่างจิ้มแจ่ว", foodType: "main", calories: 390, image: "/items/main088.webp" },
     { id: "others001", name: "ปีกไก่ย่าง", foodType: "others", calories: 300, image: "/items/others001.webp" },
     { id: "others003", name: "แกงส้มชะอมทอด", foodType: "others", calories: 200, image: "/items/others003.webp" },
     { id: "others004", name: "แกงเหลืองปลา", foodType: "others", calories: 200, image: "/items/others004.webp" },
@@ -71,13 +73,30 @@ const items =
     { id: "others020", name: "ไข่ตุ๋นคัพสไตล์ญี่ปุ่น", foodType: "others", calories: 164, image: "/items/others020.webp" },
     { id: "others021", name: "ซีเล็กทูน่าสเต๊กในน้ำแร่", foodType: "others", calories: 70, image: "/items/others021.webp" },
     { id: "others022", name: "สลัดทูน่า", foodType: "others", calories: 130, image: "/items/others022.webp" },
-    { id: "drinks001", name: "โค๊ก/เปปซี่ 1 แก้ว", foodType: "drinks", calories: 150, image: "/items/drinks001.webp" },
-    { id: "drinks002", name: "กาแฟเย็น 1 แก้ว", foodType: "drinks", calories: 90, image: "/items/drinks002.webp" },
-    { id: "drinks003", name: "ลาเต้เย็น 1 แก้ว", foodType: "drinks", calories: 170, image: "/items/drinks003.webp" },
-    { id: "drinks004", name: "ชาดําเย็น 1 แก้ว", foodType: "drinks", calories: 110, image: "/items/drinks004.webp" },
-    { id: "drinks005", name: "ชาไทยเย็น 1 แก้ว", foodType: "drinks", calories: 120, image: "/items/drinks005.webp" },
-    { id: "drinks006", name: "ชาไข่มุก 1 แก้ว", foodType: "drinks", calories: 300, image: "/items/drinks006.webp" },
-    { id: "drinks007", name: "โอเลี้ยง 1 แก้ว", foodType: "drinks", calories: 100, image: "/items/drinks007.webp" },
+    { id: "drinks001", name: "โค๊ก/เปปซี่แก้วเล็ก", foodType: "drinks", calories: 150, image: "/items/drinks001.webp" },
+    { id: "drinks002", name: "กาแฟเย็น", foodType: "drinks", calories: 90, image: "/items/drinks002.webp" },
+    { id: "drinks003", name: "ลาเต้เย็น", foodType: "drinks", calories: 170, image: "/items/drinks003.webp" },
+    { id: "drinks004", name: "ชาดําเย็น", foodType: "drinks", calories: 110, image: "/items/drinks004.webp" },
+    { id: "drinks005", name: "ชาไทยเย็น", foodType: "drinks", calories: 120, image: "/items/drinks005.webp" },
+    { id: "drinks006", name: "ชาไข่มุก", foodType: "drinks", calories: 300, image: "/items/drinks006.webp" },
+    { id: "drinks007", name: "โอเลี้ยง", foodType: "drinks", calories: 100, image: "/items/drinks007.webp" },
+    { id: "drinks008", name: "น้ำดื่มขวดเล็ก", foodType: "drinks", calories: 0, image: "/items/drinks008.webp" },
+    { id: "drinks011", name: "เปปซี่กระป๋องเล็ก", foodType: "drinks", calories: 140, image: "/items/drinks011.webp" },
+    { id: "drinks012", name: "โค้กกระป๋องเล็ก", foodType: "drinks", calories: 140, image: "/items/drinks012.webp" },
+    { id: "drinks013", name: "บิ๊กโคล่าขวดเล็ก", foodType: "drinks", calories: 120, image: "/items/drinks013.webp" },
+    { id: "drinks014", name: "มิรินด้าขวดเล็ก", foodType: "drinks", calories: 40, image: "/items/drinks014.webp" },
+    { id: "drinks015", name: "แฟนต้าขวดเล็ก", foodType: "drinks", calories: 200, image: "/items/drinks015.webp" },
+    { id: "drinks018", name: "โออิชิชาคูลล์ซ่า", foodType: "drinks", calories: 60, image: "/items/drinks018.webp" },
+    { id: "drinks019", name: "ตันซันซู ฮันนี่เลมอน", foodType: "drinks", calories: 50, image: "/items/drinks019.webp" },
+    { id: "drinks020", name: "สไปร์ทกระป๋องเล็ก", foodType: "drinks", calories: 200, image: "/items/drinks020.webp" },
+    { id: "drinks021", name: "คาลพิสแลคโตะโซดา", foodType: "drinks", calories: 60, image: "/items/drinks021.webp" },
+    { id: "drinks023", name: "ดีโด้", foodType: "drinks", calories: 130, image: "/items/drinks023.webp" },
+    { id: "drinks024", name: "ซีวิท", foodType: "drinks", calories: 35, image: "/items/drinks024.webp" },
+    { id: "drinks027", name: "โคโค่แม็ก", foodType: "drinks", calories: 80, image: "/items/drinks027.webp" },
+    { id: "drinks028", name: "อีฟน้ำเก๊กฮวย", foodType: "drinks", calories: 130, image: "/items/drinks028.webp" },
+    { id: "drinks029", name: "เซ็ปเป้ บิวติดริ้งค์", foodType: "drinks", calories: 110, image: "/items/drinks029.webp" },
+    { id: "drinks030", name: "คาโตะ", foodType: "drinks", calories: 120, image: "/items/drinks030.webp" },
+    { id: "drinks031", name: "บีทาเก้นชาหมัก", foodType: "drinks", calories: 35, image: "/items/drinks031.webp" },
     { id: "snacks001", name: "ขนมเบื้อง 1 ชิ้น", foodType: "snacks", calories: 60, image: "/items/snacks001.webp" },
     { id: "snacks002", name: "ขนมจีบ 4 ลูก", foodType: "snacks", calories: 140, image: "/items/snacks002.webp" },
     { id: "snacks003", name: "ขนมครก 1 คู่", foodType: "snacks", calories: 60, image: "/items/snacks003.webp" },
@@ -112,53 +131,28 @@ const items =
     { id: "snacks032", name: "ลูกเกดดำ ทองการ์เด้น", foodType: "snacks", calories: 90, image: "/items/snacks032.webp" }
     ];
 function generateItemHTML(item) {
-	const itemCheckbox = document.createElement('div');
-	itemCheckbox.id = item.foodType || 'default';
-	const checkboxInput = document.createElement('input');
-	checkboxInput.type = 'checkbox';
-	checkboxInput.id = item.id;
-	checkboxInput.name = 'foodItem';
-	checkboxInput.value = item.name;
-	checkboxInput.dataset.foodType = item.foodType;
-	checkboxInput.dataset.calories = item.calories;
-	checkboxInput.dataset.image = item.image;
-	const checkboxLabel = document.createElement('label');
-	checkboxLabel.setAttribute('for', item.id);
-	const image = document.createElement('img');
-	image.src = item.image;
-	image.alt = item.name;
-	image.loading = 'lazy';
-	const coverCheckbox = document.createElement('span');
-	coverCheckbox.className = 'cover-checkbox';
-	const svg = document.createElement('svg');
-	svg.setAttribute('viewBox', '0 0 12 10');
-	const polyline = document.createElement('polyline');
-	polyline.setAttribute('points', '1.5 6 4.5 9 10.5 1');
-	svg.appendChild(polyline);
-	coverCheckbox.appendChild(svg);
-	const info = document.createElement('div');
-	info.className = 'info';
-	const nameText = document.createTextNode(item.name);
-	const lineBreak = document.createElement('br');
-	const caloriesText = document.createTextNode(`${item.calories} kcal`);
-	info.appendChild(nameText);
-	info.appendChild(lineBreak);
-	info.appendChild(caloriesText);
-	checkboxLabel.appendChild(image);
-	checkboxLabel.appendChild(coverCheckbox);
-	checkboxLabel.appendChild(info);
-	itemCheckbox.appendChild(checkboxInput);
-	itemCheckbox.appendChild(checkboxLabel);
-	return itemCheckbox;
+        return`
+              <div id="${item.foodType || 'default'}" class="itemcheckbox">
+                  <input type="checkbox" id="${item.id}" name="foodItem" value="${item.name}" data-food-type="${item.foodType}" data-calories="${item.calories}" data-image="${item.image}">
+                  <label for="${item.id}">
+                      <img src="${item.image}" alt="${item.name}" loading="lazy" />
+                      <span class="cover-checkbox">
+                          <svg viewBox="0 0 12 10">
+                              <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                          </svg>
+                      </span>
+                      <div class="info">${item.name}<br>${item.calories} kcal</div>
+                  </label>
+              </div>
+          `;
 }
 // Get the container element
 const foodItemsContainer = document.getElementById('fooditems');
-// Create a document fragment
-const fragment = document.createDocumentFragment();
-// Loop through items and append HTML to fragment
+// Create an array to store the HTML
+const htmlArray = [];
+// Loop through items and push HTML to the array
 items.forEach(item => {
-	const itemElement = generateItemHTML(item);
-	fragment.appendChild(itemElement);
+  htmlArray.push(generateItemHTML(item));
 });
-// Append the fragment to the container
-foodItemsContainer.appendChild(fragment);
+// Join the array into a single string and set the innerHTML of the container
+foodItemsContainer.innerHTML = htmlArray.join('');

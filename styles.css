@@ -461,7 +461,7 @@ label .cover-checkbox svg {
 	width: 15px;
 	height: 10px;
 	display: inline-block;
-	vertical-align: center;
+	vertical-align: middle;
 	fill: none;
 	margin: 0px 0 0 5px;
 	stroke: #5ec15d;
