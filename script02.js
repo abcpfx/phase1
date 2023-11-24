@@ -270,22 +270,24 @@ function animateTotalCaloriesForMealtime(totalCaloriesElement, mealItems) {
     const initialFontSize = 14; // Starting font size
     const maxFontSize = 18; // Maximum font size
     const fontSizeIncrement = (maxFontSize - initialFontSize) / frames;
+    let currentFontSize = initialFontSize;
     const increment = totalCalories / (duration / frames);
-    const updateValue = (currentValue, currentFontSize) => {
+    let currentValue = parseFloat(totalCaloriesElement.textContent.match(/\d+/)); // Get the current value
+    const updateValue = () => {
         if (currentValue < totalCalories) {
             // Animate only the numerical part of the content
             totalCaloriesElement.innerHTML = `แคลอรี่ทั้งหมด : <span style="font-size: ${currentFontSize}px;">${Math.round(currentValue).toLocaleString()}</span> กิโลแคลอรี่`;
+
             currentFontSize += fontSizeIncrement; // Increment font size
             currentValue += increment;
-            // Use requestAnimationFrame for smoother animations
-            requestAnimationFrame(() => updateValue(currentValue, currentFontSize));
+            requestAnimationFrame(updateValue);
         } else {
             // Animate only the numerical part of the content
             totalCaloriesElement.innerHTML = `แคลอรี่ทั้งหมด : <span style="font-size: ${maxFontSize}px;">${totalCalories.toLocaleString()}</span> กิโลแคลอรี่`;
             totalCaloriesElement.dataset.isAnimating = "false"; // Reset the flag when the animation is complete
         }
     };
-    updateValue(0, initialFontSize);
+    updateValue();
 }
 
 function animateCounting(element, targetValue) {
