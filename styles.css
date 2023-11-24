@@ -18,11 +18,11 @@ h1,h3 {
 }
 /* Media Queries */
 @media (max-width: 768px) {
+	.fooditems {
+		max-height: 35vh;
+	}
 	.rsimg {
 		max-width: 90%;
-	}
-	.itemcheckbox {
-		padding: 5px;
 	}
 	.info {
 		font-size: 14px;
@@ -32,27 +32,25 @@ h1,h3 {
 	}
 }
 @media (min-width: 769px) and (max-width: 1024px) {
+	.fooditems {
+		max-height: 40vh;
+	}
 	.rsimg {
 		max-width: 90%;
-	}
-	.itemcheckbox {
-		width: 30%;
-		padding: 5px;
-	}
-	.info {
-		font-size: 14px;
 	}
 	.addmealbuttons {
 		flex-direction: column;
 	}
 }
 @media (min-width: 1025px) {
+	.fooditems {
+		max-height: 45vh;
+	}
 	.rsimg {
 		max-width: 90%;
 	}
-	.itemcheckbox {
-		width: 25%;
-		padding: 10px;
+	.addmealbuttons {
+		flex-direction: column;
 	}
 }
 * {
@@ -375,19 +373,19 @@ button.delete-button:hover {
 	transition: 0.15s;
 	transform: scale(0.75);
 }
-#main {
+.fooditems #main {
 	border-color: #e41a1c;
 }
-#others {
+.fooditems #others {
 	border-color: #377eb8;
 }
-#snacks {
+.fooditems #snacks {
 	border-color: #4daf4a;
 }
-#drinks {
+.fooditems #drinks {
 	border-color: #984ea3;
 }
-#default {
+.fooditems #default {
 	border-color: black;
 }
 .fooditems {
@@ -395,7 +393,8 @@ button.delete-button:hover {
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	width: 95vw;
 	/* Set the width as needed */
-	max-height: 30vh;
+	height: 35vh;
+	max-height: 50vh;
 	/* Set the height as needed */
 	border: none;
 	/* Optional: Add a border for styling */
