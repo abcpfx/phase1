@@ -73,6 +73,7 @@ function animateItems() {
 		}, index * 100); // Adjust the delay as needed
 	});
 }
+
 // Event listener for scroll
 window.addEventListener('scroll', function() {
 	// Check if the fooditems container is in the viewport
@@ -109,12 +110,37 @@ const mealtimeButtons = {
 
 // Initially disable checkboxes inside foodItem div elements and apply grayscale filter
 document.querySelectorAll('.itemcheckbox input[name="foodItem"]').forEach((checkbox) => {
-	checkbox.disabled = true;
-	const parentDiv = checkbox.closest('.itemcheckbox');
-	if (parentDiv) {
-	  parentDiv.style.filter = 'grayscale(100%)';
-	}
-  });
+    checkbox.disabled = true;
+    const parentDiv = checkbox.closest('.itemcheckbox');
+    if (parentDiv) {
+        parentDiv.style.filter = 'grayscale(100%)';
+        parentDiv.addEventListener('click', handleCheckboxClick);
+    }
+});
+
+// Function to handle the click event on itemcheckbox elements
+function handleCheckboxClick(event) {
+    const addMealButtons = document.getElementById('addmealbuttons');
+    const isGrayscale = event.currentTarget.style.filter === 'grayscale(100%)';
+
+    if (isGrayscale) {
+        addMealButtons.style.border = '2px solid red';
+        addMealButtons.classList.add('pulsing'); // Add pulsing class
+
+        // Switch the buttons to grayscale
+        document.querySelectorAll('.addmealbuttons button').forEach((button) => {
+            button.classList.add('grayscale');
+        });
+    } else {
+        addMealButtons.style.border = 'none';
+        addMealButtons.classList.remove('pulsing'); // Remove pulsing class
+
+        // Switch the buttons back to normal color
+        document.querySelectorAll('.addmealbuttons button').forEach((button) => {
+            button.classList.remove('grayscale');
+        });
+    }
+}
 
 // Add event listener to mealtime buttons to enable checkboxes
 Object.values(mealtimeButtons).forEach((button) => {
@@ -122,7 +148,12 @@ Object.values(mealtimeButtons).forEach((button) => {
   });
   
   function enableCheckboxes() {
-	// Hide the warning element
+	const addMealButtons = document.getElementById('addmealbuttons');
+	addMealButtons.style.border = 'none';
+	addMealButtons.classList.remove('pulsing');
+	document.querySelectorAll('.addmealbuttons button').forEach((button) => {
+		button.classList.remove('grayscale');
+	});
 	warningElement.style.display = "none";
 	// Enable checkboxes inside foodItem div elements when any mealtime button is clicked
 	document.querySelectorAll('.itemcheckbox input[name="foodItem"]').forEach((checkbox) => {
@@ -140,7 +171,6 @@ Object.values(mealtimeButtons).forEach((button) => {
 
 function setFocusedMealtime(mealtime) {
 	focusedMealtime = mealtime;
-  
 	// Update UI to indicate the focused mealtime and grayscale non-focused buttons
 	Object.entries(mealtimeButtons).forEach(([key, button]) => {
 		if (key === mealtime) {
@@ -149,7 +179,6 @@ function setFocusedMealtime(mealtime) {
 		  button.classList.remove("focused");
 		}
 	});
-
 	// Get the fooditems div
 	const foodItemsDiv = document.getElementById("fooditems");
 	// Set border color based on meal type
@@ -167,8 +196,6 @@ function setFocusedMealtime(mealtime) {
 		// Default color if the meal type is not recognized
 		foodItemsDiv.style.borderColor = "#000000";
 	}
-	// Hide the warning element
-	warningElement.style.display = "none";
 }
 
 // Add event listener to food items to automatically add them to the focused mealtime
@@ -178,8 +205,7 @@ foodItems.forEach((checkbox) => {
 		addToMealTime(focusedMealtime);
 	  }
 	});
-  });
-
+});
 
 // Add event listeners to mealtime buttons
 breakfastButton.addEventListener("click", () => setFocusedMealtime("breakfast"));
@@ -433,7 +459,7 @@ function updateSuggestions(value) {
 			suggestionColor = 'red';
 			break;
 		case value >= 1001 && value <= 1799:
-			suggestionText = 'รับประทานอีกหน่อยนะ -';
+			suggestionText = '- รับประทานอีกหน่อยนะ -';
 			suggestionColor = 'orange';
 			break;
 		case value >= 1800 && value <= 2000:
