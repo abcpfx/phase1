@@ -148,14 +148,20 @@ h2:hover {
 	/* Support for IE. */
 	font-feature-settings: 'liga';
 }
+.sortbtn {
+	display: flex;
+	margin-bottom: 5px;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
 #sortOrder {
-    margin-right: 2%;
-    margin-bottom: 5px;
-	width: 150px;
-	max-height: fit-content;
+	height: 35px;
+	width: 160px;
 	font-size: 14px;
 	border: 2px solid #ccc;
-	border-radius: 4px;
+	border-radius: 5px;
 	background-color: #fff;
 	color: #333;
 	text-align: center;
@@ -171,9 +177,60 @@ h2:hover {
 #sortOrder option {
 	padding: 4px;
 }
-.sortbtn {
-	display: flex;
-	justify-content: right;
+/* Style for the search input */
+#foodSearch {
+	padding-left: 12px;
+	padding-right: 12px;
+	height: 29px;
+	font-family: Kanit, sans-serif;
+	width: 152px;
+	font-size: 14px;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	background-color: #fff;
+	color: #333;
+	transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+#foodSearch:hover,#foodSearch:focus {
+	border-color: #1976D2;
+	/* Material Design blue on hover */
+	box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
+	/* Material Design blue shadow on hover */
+	color: #1976D2;
+	/* Material Design blue text color on hover */
+}
+/* Style for the filter dropdown */
+#foodFilter {
+	height: 35px;
+	text-align: center;
+	font-family: Kanit, sans-serif;
+	width: 160px;
+	font-size: 14px;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	background-color: #fff;
+	color: #333;
+	transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+/* Style when the dropdown is focused */
+#foodFilter:focus {
+	border-color: #1976D2;
+	/* Material Design blue on focus */
+	box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
+	/* Material Design blue shadow on focus */
+}
+/* Style for the options within the dropdown */
+#foodFilter option {
+	font-family: Kanit, sans-serif;
+	font-size: 16px;
+	padding: 5px;
+	background-color: #fff;
+	color: #333;
+	transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+#foodFilter option:hover {
+	background-color: #1976D2;
+	color: #fff;
 }
 /* Container for meal categories */
 .mealresult {
@@ -482,70 +539,34 @@ label .info {
 	/* Show ellipsis (...) for overflowing text */
 	overflow: hidden;
 	/* Hide text that overflows */
-}
-/* Style for the search and filter container */
-.searchandfilter {
-	margin: 10px;
+} 
+.warning {
 	display: flex;
+	text-align: center;
+	margin: 0 auto;
 	align-items: center;
 	justify-content: center;
-	flex-direction: row;
-	flex-wrap: wrap;
-	text-align: center;
 }
-/* Style for the search input */
-#foodSearch {
-	font-family: Kanit, sans-serif;
-	width: 160px;
-	font-size: 14px;
-	border: 2px solid #ccc;
-	border-radius: 5px;
-	background-color: #fff;
-	color: #333;
-	padding: 5px;
-	transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+.warning p {
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 200px;
+	height: 25px;
+	font-size: large;
+	color: white;
+	padding: 10px;
+	background-image: linear-gradient(to right, #e52d27 0%, #b31217  51%, #e52d27  100%);
+	border-radius: 10px;
+	text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
 }
-#foodSearch:hover,#foodSearch:focus {
-	border-color: #1976D2;
-	/* Material Design blue on hover */
-	box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
-	/* Material Design blue shadow on hover */
-	color: #1976D2;
-	/* Material Design blue text color on hover */
-}
-/* Style for the filter dropdown */
-#foodFilter {
-	text-align: center;
-	margin-right: 10px;
-	font-family: Kanit, sans-serif;
-	width: 160px;
-    padding: 5px;
-	font-size: 14px;
-	border: 2px solid #ccc;
-	border-radius: 5px;
-	background-color: #fff;
-	color: #333;
-	transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-/* Style when the dropdown is focused */
-#foodFilter:focus {
-	border-color: #1976D2;
-	/* Material Design blue on focus */
-	box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
-	/* Material Design blue shadow on focus */
-}
-/* Style for the options within the dropdown */
-#foodFilter option {
-	font-family: Kanit, sans-serif;
-	font-size: 16px;
-	padding: 5px;
-	background-color: #fff;
-	color: #333;
-	transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-#foodFilter option:hover {
-	background-color: #1976D2;
-	color: #fff;
+.warning p:hover {
+	background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
 }
 .addmealbuttons {
 	margin: 10px;
@@ -554,6 +575,15 @@ label .info {
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-around;
+}
+/* Add grayscale filter to non-focused buttons */
+#addBreakfast, #addLunch, #addDinner {
+	filter: grayscale(100%);
+}
+/* Remove grayscale filter from focused button */
+#addBreakfast.focused, #addLunch.focused, #addDinner.focused {
+	border: solid 2px black;
+	filter: grayscale(0%);
 }
 /* Style for the "Add to Breakfast" button */
 #addBreakfast {

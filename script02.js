@@ -88,66 +88,132 @@ const breakfastResult = document.getElementById("breakfastResult");
 const lunchResult = document.getElementById("lunchResult");
 const dinnerResult = document.getElementById("dinnerResult");
 const totalCaloriesResult = document.getElementById("totalCaloriesResult");
+// Store the currently selected category
+let currentCategory = "lunchResult";
+let focusedMealtime = null;
 let selectedItems = {
 	breakfast: [],
 	lunch: [],
 	dinner: [],
 };
-// Store the currently selected category
-let currentCategory = "lunchResult";
-document.getElementById("addBreakfast").addEventListener("click", () => {
-	addToMealTime("breakfast");
-});
-document.getElementById("addLunch").addEventListener("click", () => {
-	addToMealTime("lunch");
-});
-document.getElementById("addDinner").addEventListener("click", () => {
-	addToMealTime("dinner");
-});
+const breakfastButton = document.getElementById("addBreakfast");
+const lunchButton = document.getElementById("addLunch");
+const dinnerButton = document.getElementById("addDinner");
+const warningElement = document.querySelector(".warning");
+
+const mealtimeButtons = {
+  breakfast: breakfastButton,
+  lunch: lunchButton,
+  dinner: dinnerButton,
+};
+
+// Initially disable checkboxes inside foodItem div elements and apply grayscale filter
+document.querySelectorAll('.itemcheckbox input[name="foodItem"]').forEach((checkbox) => {
+	checkbox.disabled = true;
+	const parentDiv = checkbox.closest('.itemcheckbox');
+	if (parentDiv) {
+	  parentDiv.style.filter = 'grayscale(100%)';
+	}
+  });
+
+// Add event listener to mealtime buttons to enable checkboxes
+Object.values(mealtimeButtons).forEach((button) => {
+	button.addEventListener("click", enableCheckboxes);
+  });
+  
+  function enableCheckboxes() {
+	// Hide the warning element
+	warningElement.style.display = "none";
+	// Enable checkboxes inside foodItem div elements when any mealtime button is clicked
+	document.querySelectorAll('.itemcheckbox input[name="foodItem"]').forEach((checkbox) => {
+	  checkbox.disabled = false;
+	  const parentDiv = checkbox.closest('.itemcheckbox');
+	  if (parentDiv) {
+		parentDiv.style.filter = 'grayscale(0%)';
+	  }
+	});
+	// Remove the event listener to avoid re-enabling checkboxes on subsequent clicks
+	Object.values(mealtimeButtons).forEach((button) => {
+	  button.removeEventListener("click", enableCheckboxes);
+	});
+  }
+
+function setFocusedMealtime(mealtime) {
+	focusedMealtime = mealtime;
+  
+	// Update UI to indicate the focused mealtime and grayscale non-focused buttons
+	Object.entries(mealtimeButtons).forEach(([key, button]) => {
+		if (key === mealtime) {
+		  button.classList.add("focused");
+		} else {
+		  button.classList.remove("focused");
+		}
+	});
+
+	// Get the fooditems div
+	const foodItemsDiv = document.getElementById("fooditems");
+	// Set border color based on meal type
+	switch (mealtime) {
+	  case "breakfast":
+		foodItemsDiv.style.borderColor = "#93F9B9";
+		break;
+	  case "lunch":
+		foodItemsDiv.style.borderColor = "#12D8FA";
+		break;
+	  case "dinner":
+		foodItemsDiv.style.borderColor = "#F09819";
+		break;
+	  default:
+		// Default color if the meal type is not recognized
+		foodItemsDiv.style.borderColor = "#000000";
+	}
+	// Hide the warning element
+	warningElement.style.display = "none";
+}
+
+// Add event listener to food items to automatically add them to the focused mealtime
+foodItems.forEach((checkbox) => {
+	checkbox.addEventListener("change", () => {
+	  if (focusedMealtime) {
+		addToMealTime(focusedMealtime);
+	  }
+	});
+  });
+
+
+// Add event listeners to mealtime buttons
+breakfastButton.addEventListener("click", () => setFocusedMealtime("breakfast"));
+lunchButton.addEventListener("click", () => setFocusedMealtime("lunch"));
+dinnerButton.addEventListener("click", () => setFocusedMealtime("dinner"));
 
 function addToMealTime(mealTime) {
 	const selectedFoodItems = Array.from(foodItems).filter((checkbox) => {
-		if(checkbox.checked) {
-			checkbox.checked = false; // Clear the checkbox
-			return true;
-		}
-		return false;
+	  if (checkbox.checked) {
+		checkbox.checked = false; // Clear the checkbox
+		return true;
+	  }
+	  return false;
 	}).map((checkbox) => ({
-		name: checkbox.value,
-		calories: parseInt(checkbox.getAttribute("data-calories"), 10),
-		image: checkbox.getAttribute("data-image"), // Image URL
+	  name: checkbox.value,
+	  calories: parseInt(checkbox.getAttribute("data-calories"), 10),
+	  image: checkbox.getAttribute("data-image"), // Image URL
 	}));
+  
 	selectedFoodItems.forEach((foodItem) => {
-		const existingItem = selectedItems[mealTime].find((item) => item.name === foodItem.name);
-		if(existingItem) {
-			// If the item with the same name already exists, increment its count.
-			existingItem.count++;
-		} else {
-			// If it's a new item, add it to the list with a count of 1.
-			foodItem.count = 1;
-			selectedItems[mealTime].push(foodItem);
-		}
+	  const existingItem = selectedItems[mealTime].find((item) => item.name === foodItem.name);
+	  if (existingItem) {
+		// If the item with the same name already exists, increment its count.
+		existingItem.count++;
+	  } else {
+		// If it's a new item, add it to the list with a count of 1.
+		foodItem.count = 1;
+		selectedItems[mealTime].push(foodItem);
+	  }
 	});
-	// Get the fooditems div
-    const foodItemsDiv = document.getElementById("fooditems");
-    // Set border color based on meal type
-    switch (mealTime){
-        case "breakfast":
-            foodItemsDiv.style.borderColor = "#93F9B9";
-            break;
-        case "lunch":
-            foodItemsDiv.style.borderColor = "#12D8FA";
-            break;
-        case "dinner":
-            foodItemsDiv.style.borderColor = "#F09819";
-            break;
-        default:
-            // Default color if the meal type is not recognized
-            foodItemsDiv.style.borderColor = "#000000";
-    }
+  
 	// Add the class with the slide-in animation to the updated mealtime result element
-    const mealtimeResultElement = document.getElementById(`${mealTime}Items`);
-    mealtimeResultElement.classList.add('slideIn');
+	const mealtimeResultElement = document.getElementById(`${mealTime}Items`);
+	mealtimeResultElement.classList.add('slideIn');
 	// Call the updateSelection function to update the UI with the selected items
 	updateSelection();
 	// Remove the border from the previously selected category
@@ -156,7 +222,7 @@ function addToMealTime(mealTime) {
 	scrollToCategory(mealTime);
 	// Update the currently selected category
 	currentCategory = `${mealTime}Result`;
-}
+  }
 
 function scrollToCategory(category) {
 	const targetCategory = document.getElementById(`${category}Result`);

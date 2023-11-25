@@ -32,31 +32,35 @@
     <div class="head2">
         <h2>เลือกเมนูอาหาร</h2>
     </div>
-    <div class="searchandfilter" tabindex="0">
-        <select id="foodFilter" title="เลือกประเภทอาหาร">
-            <option value="all" disabled selected hidden>เลือกประเภทอาหาร</option>
-            <option value="all">ทุกประเภท</option>
-            <option value="main" style="color: #e41a1c;">อาหารจานเดียว</option>
-            <option value="drinks" style="color: #984ea3;">เครื่องดื่ม</option>
-            <option value="snacks" style="color: #4daf4a;">ขนมและอาหารว่าง</option>            
-            <option value="others" style="color: #377eb8;">อื่นๆ</option>
-        </select>
-        <input type="text" id="foodSearch" placeholder="ค้นหาชื่ออาหาร..." onchange="filterAndSearch('all');">
-    </div>
 
     <div class="addmealbuttons">
-        <button id="addBreakfast"><i class="material-icons" style="font-size: 1em;">free_breakfast</i> เพิ่มมื้อเช้า</button>
-        <button id="addLunch"><i class="material-icons" style="font-size: 1em;">restaurant</i> เพิ่มมื้อกลางวัน</button>
-        <button id="addDinner"><i class="material-icons" style="font-size: 1em;">local_dining</i> เพิ่มมื้อเย็น</button>
+        <button id="addBreakfast"><i class="material-icons" style="font-size: 1em;">free_breakfast</i> เลือกมื้อเช้า</button>
+        <button id="addLunch"><i class="material-icons" style="font-size: 1em;">restaurant</i> เลือกมื้อกลางวัน</button>
+        <button id="addDinner"><i class="material-icons" style="font-size: 1em;">local_dining</i> เลือกมื้อเย็น</button>
     </div>
 
     <div class="sortbtn">
+        <div class="searchandfilter" tabindex="0">
+            <select id="foodFilter" title="เลือกประเภทอาหาร">
+                <option value="all" disabled selected hidden>เลือกประเภทอาหาร</option>
+                <option value="all">ทุกประเภท</option>
+                <option value="main" style="color: #e41a1c;">อาหารจานเดียว</option>
+                <option value="drinks" style="color: #984ea3;">เครื่องดื่ม</option>
+                <option value="snacks" style="color: #4daf4a;">ขนมและอาหารว่าง</option>            
+                <option value="others" style="color: #377eb8;">อื่นๆ</option>
+            </select>
+        </div>
+        <input type="text" id="foodSearch" placeholder="ค้นหาชื่ออาหาร..." onchange="filterAndSearch('all');">
         <select id="sortOrder" title="การเรียงลำดับ" onchange="sortCheckOrder(this.value)">
             <option value="" disabled selected hidden>เรียงจาก</option>
             <option value="default">เรียงตามประเภท</option>
             <option value="asc">น้อยไปหามาก</option>
             <option value="desc">มากไปหาน้อย</option>
         </select>
+    </div>
+
+    <div class="warning">
+        <p>เลือกมื้ออาหารก่อน</p>
     </div>
 
     <div class="fooditems" id="fooditems">
