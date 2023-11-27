@@ -18,25 +18,22 @@ h1,h3 {
 }
 /* Media Queries */
 @media (max-width: 768px) {
+	.sortbtn {
+		flex-direction: column;
+	}
 	.fooditems {
 		max-height: 35vh;
-	}
-	.rsimg {
-		max-width: 90%;
-	}
-	.info {
-		font-size: 14px;
 	}
 	.addmealbuttons {
 		flex-direction: column;
 	}
 }
 @media (min-width: 769px) and (max-width: 1024px) {
+	.sortbtn {
+		flex-direction: column;
+	}
 	.fooditems {
 		max-height: 40vh;
-	}
-	.rsimg {
-		max-width: 90%;
 	}
 	.addmealbuttons {
 		flex-direction: column;
@@ -45,12 +42,6 @@ h1,h3 {
 @media (min-width: 1025px) {
 	.fooditems {
 		max-height: 45vh;
-	}
-	.rsimg {
-		max-width: 90%;
-	}
-	.addmealbuttons {
-		flex-direction: column;
 	}
 }
 * {
@@ -579,10 +570,10 @@ label .info {
 }
 @keyframes grayscaleSwitch {
   0% {
-    filter: grayscale(100%);
+    filter: grayscale(0%);
   }
   100% {
-    filter: grayscale(0%);
+    filter: grayscale(100%);
   }
 }
 #addmealbuttons.pulsing {
