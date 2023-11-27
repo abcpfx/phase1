@@ -446,6 +446,7 @@ button.delete-button:hover {
 	border-color: black;
 }
 .fooditems {
+	border: none;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -610,8 +611,8 @@ label .info {
 }
 /* Remove grayscale filter from focused button */
 #addBreakfast.focused, #addLunch.focused, #addDinner.focused {
-	border-bottom: solid 3px black;
-	border-radius: 0px;
+	border-bottom: solid 2px black;
+	border-radius: 30px;
 	filter: grayscale(0%);
 }
 /* Style for the "Add to Breakfast" button */

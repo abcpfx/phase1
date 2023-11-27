@@ -184,17 +184,16 @@ function setFocusedMealtime(mealtime) {
 	// Set border color based on meal type
 	switch (mealtime) {
 	  case "breakfast":
-		foodItemsDiv.style.borderColor = "#93F9B9";
+		foodItemsDiv.style.border = '2px solid #93F9B9';
 		break;
 	  case "lunch":
-		foodItemsDiv.style.borderColor = "#12D8FA";
+		foodItemsDiv.style.border = '2px solid #12D8FA';
 		break;
 	  case "dinner":
-		foodItemsDiv.style.borderColor = "#F09819";
+		foodItemsDiv.style.border = '2px solid #F09819';
 		break;
 	  default:
-		// Default color if the meal type is not recognized
-		foodItemsDiv.style.borderColor = "#000000";
+		foodItemsDiv.style.border = '2px solid #000000';
 	}
 }
 
