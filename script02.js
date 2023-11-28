@@ -368,6 +368,10 @@ function deleteItemWithAnimation(listItem, itemName, mealTime) {
 }
 
 function animateTotalCaloriesForMealtime(totalCaloriesElement, mealItems) {
+	if (mealItems.length === 0) {
+        totalCaloriesElement.textContent = "เพิ่มเมนูอาหารเพื่อคำนวณ";
+        return;
+    }
     const totalCalories = calculateTotalCalories(mealItems);
     if (totalCaloriesElement.dataset.isAnimating === "true") {
         return; // Animation is already in progress
@@ -515,9 +519,9 @@ function resetSelection() {
 	// Clear the displayed selections and total calories
 	updateSelection();
 	// Scroll smoothly to the element with class "searchandfilter"
-	const searchAndFilterDiv = document.querySelector('.searchandfilter');
-	if(searchAndFilterDiv) {
-		searchAndFilterDiv.scrollIntoView({
+	const addmealbuttonsDiv = document.getElementById("addmealbuttons");
+	if(addmealbuttonsDiv) {
+		addmealbuttonsDiv.scrollIntoView({
 			behavior: 'smooth'
 		});
 	}
