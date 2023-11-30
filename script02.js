@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
 function sortCheckOrder(order) {
 	if(order === 'default') {
 		sortCheckboxes();
-	} else {
+	}
+	else {
 		sortCheckboxesByCalories(order);
 	}
 }
@@ -47,7 +48,8 @@ function sortCheckboxesByCalories(order) {
 		var caloriesB = parseInt(b.querySelector("input").getAttribute("data-calories"));
 		if(order === 'asc') {
 			return caloriesA - caloriesB;
-		} else if(order === 'desc') {
+		}
+		else if(order === 'desc') {
 			return caloriesB - caloriesA;
 		}
 	});
@@ -73,7 +75,6 @@ function animateItems() {
 		}, index * 100); // Adjust the delay as needed
 	});
 }
-
 // Event listener for scroll
 window.addEventListener('scroll', function() {
 	// Check if the fooditems container is in the viewport
@@ -101,53 +102,51 @@ const breakfastButton = document.getElementById("addBreakfast");
 const lunchButton = document.getElementById("addLunch");
 const dinnerButton = document.getElementById("addDinner");
 const warningElement = document.querySelector(".warning");
-
+// Add event listeners to mealtime buttons
+breakfastButton.addEventListener("click", () => setFocusedMealtime("breakfast"));
+lunchButton.addEventListener("click", () => setFocusedMealtime("lunch"));
+dinnerButton.addEventListener("click", () => setFocusedMealtime("dinner"));
 const mealtimeButtons = {
-  breakfast: breakfastButton,
-  lunch: lunchButton,
-  dinner: dinnerButton,
+	breakfast: breakfastButton,
+	lunch: lunchButton,
+	dinner: dinnerButton,
 };
-
 // Initially disable checkboxes inside foodItem div elements and apply grayscale filter
 document.querySelectorAll('.itemcheckbox input[name="foodItem"]').forEach((checkbox) => {
-    checkbox.disabled = true;
-    const parentDiv = checkbox.closest('.itemcheckbox');
-    if (parentDiv) {
-        parentDiv.style.filter = 'grayscale(100%)';
-        parentDiv.addEventListener('click', handleCheckboxClick);
-    }
+	checkbox.disabled = true;
+	const parentDiv = checkbox.closest('.itemcheckbox');
+	if(parentDiv) {
+		parentDiv.style.filter = 'grayscale(100%)';
+		parentDiv.addEventListener('click', handleCheckboxClick);
+	}
 });
-
 // Function to handle the click event on itemcheckbox elements
 function handleCheckboxClick(event) {
-    const addMealButtons = document.getElementById('addmealbuttons');
-    const isGrayscale = event.currentTarget.style.filter === 'grayscale(100%)';
-
-    if (isGrayscale) {
-        addMealButtons.style.border = '2px solid red';
-        addMealButtons.classList.add('pulsing'); // Add pulsing class
-
-        // Switch the buttons to grayscale
-        document.querySelectorAll('.addmealbuttons button').forEach((button) => {
-            button.classList.add('grayscale');
-        });
-    } else {
-        addMealButtons.style.border = 'none';
-        addMealButtons.classList.remove('pulsing'); // Remove pulsing class
-
-        // Switch the buttons back to normal color
-        document.querySelectorAll('.addmealbuttons button').forEach((button) => {
-            button.classList.remove('grayscale');
-        });
-    }
+	const addMealButtons = document.getElementById('addmealbuttons');
+	const isGrayscale = event.currentTarget.style.filter === 'grayscale(100%)';
+	if(isGrayscale) {
+		addMealButtons.style.border = '2px solid red';
+		addMealButtons.classList.add('pulsing'); // Add pulsing class
+		// Switch the buttons to grayscale
+		document.querySelectorAll('.addmealbuttons button').forEach((button) => {
+			button.classList.add('grayscale');
+		});
+	}
+	else {
+		addMealButtons.style.border = 'none';
+		addMealButtons.classList.remove('pulsing'); // Remove pulsing class
+		// Switch the buttons back to normal color
+		document.querySelectorAll('.addmealbuttons button').forEach((button) => {
+			button.classList.remove('grayscale');
+		});
+	}
 }
-
 // Add event listener to mealtime buttons to enable checkboxes
 Object.values(mealtimeButtons).forEach((button) => {
 	button.addEventListener("click", enableCheckboxes);
-  });
-  
-  function enableCheckboxes() {
+});
+
+function enableCheckboxes() {
 	const addMealButtons = document.getElementById('addmealbuttons');
 	addMealButtons.style.border = 'none';
 	addMealButtons.classList.remove('pulsing');
@@ -157,85 +156,79 @@ Object.values(mealtimeButtons).forEach((button) => {
 	warningElement.style.display = "none";
 	// Enable checkboxes inside foodItem div elements when any mealtime button is clicked
 	document.querySelectorAll('.itemcheckbox input[name="foodItem"]').forEach((checkbox) => {
-	  checkbox.disabled = false;
-	  const parentDiv = checkbox.closest('.itemcheckbox');
-	  if (parentDiv) {
-		parentDiv.style.filter = 'grayscale(0%)';
-	  }
+		checkbox.disabled = false;
+		const parentDiv = checkbox.closest('.itemcheckbox');
+		if(parentDiv) {
+			parentDiv.style.filter = 'grayscale(0%)';
+		}
 	});
 	// Remove the event listener to avoid re-enabling checkboxes on subsequent clicks
 	Object.values(mealtimeButtons).forEach((button) => {
-	  button.removeEventListener("click", enableCheckboxes);
+		button.removeEventListener("click", enableCheckboxes);
 	});
-  }
+}
 
 function setFocusedMealtime(mealtime) {
 	focusedMealtime = mealtime;
 	// Update UI to indicate the focused mealtime and grayscale non-focused buttons
 	Object.entries(mealtimeButtons).forEach(([key, button]) => {
-		if (key === mealtime) {
-		  button.classList.add("focused");
-		} else {
-		  button.classList.remove("focused");
+		if(key === mealtime) {
+			button.classList.add("focused");
+		}
+		else {
+			button.classList.remove("focused");
 		}
 	});
 	// Get the fooditems div
 	const foodItemsDiv = document.getElementById("fooditems");
 	// Set border color based on meal type
-	switch (mealtime) {
-	  case "breakfast":
-		foodItemsDiv.style.border = '2px solid #93F9B9';
-		break;
-	  case "lunch":
-		foodItemsDiv.style.border = '2px solid #12D8FA';
-		break;
-	  case "dinner":
-		foodItemsDiv.style.border = '2px solid #F09819';
-		break;
-	  default:
-		foodItemsDiv.style.border = '2px solid #000000';
+	switch(mealtime) {
+		case "breakfast":
+			foodItemsDiv.style.border = '2px solid #93F9B9';
+			break;
+		case "lunch":
+			foodItemsDiv.style.border = '2px solid #12D8FA';
+			break;
+		case "dinner":
+			foodItemsDiv.style.border = '2px solid #F09819';
+			break;
+		default:
+			foodItemsDiv.style.border = '2px solid #000000';
 	}
 }
-
 // Add event listener to food items to automatically add them to the focused mealtime
 foodItems.forEach((checkbox) => {
 	checkbox.addEventListener("change", () => {
-	  if (focusedMealtime) {
-		addToMealTime(focusedMealtime);
-	  }
+		if(focusedMealtime) {
+			addToMealTime(focusedMealtime);
+		}
 	});
 });
 
-// Add event listeners to mealtime buttons
-breakfastButton.addEventListener("click", () => setFocusedMealtime("breakfast"));
-lunchButton.addEventListener("click", () => setFocusedMealtime("lunch"));
-dinnerButton.addEventListener("click", () => setFocusedMealtime("dinner"));
-
 function addToMealTime(mealTime) {
 	const selectedFoodItems = Array.from(foodItems).filter((checkbox) => {
-	  if (checkbox.checked) {
-		checkbox.checked = false; // Clear the checkbox
-		return true;
-	  }
-	  return false;
+		if(checkbox.checked) {
+			checkbox.checked = false;
+			return true;
+		}
+		return false;
 	}).map((checkbox) => ({
-	  name: checkbox.value,
-	  calories: parseInt(checkbox.getAttribute("data-calories"), 10),
-	  image: checkbox.getAttribute("data-image"), // Image URL
+		name: checkbox.value,
+		calories: parseInt(checkbox.getAttribute("data-calories"), 10),
+		image: checkbox.getAttribute("data-image"), // Image URL
 	}));
-  
 	selectedFoodItems.forEach((foodItem) => {
-	  const existingItem = selectedItems[mealTime].find((item) => item.name === foodItem.name);
-	  if (existingItem) {
-		// If the item with the same name already exists, increment its count.
-		existingItem.count++;
-	  } else {
-		// If it's a new item, add it to the list with a count of 1.
-		foodItem.count = 1;
-		selectedItems[mealTime].push(foodItem);
-	  }
+		const existingItem = selectedItems[mealTime].find((item) => item.name === foodItem.name);
+		if(existingItem) {
+			// If the item with the same name already exists, increment its count.
+			existingItem.count++;
+		}
+		else {
+			// If it's a new item, add it to the list with a count of 1.
+			foodItem.count = 1;
+			selectedItems[mealTime].push(foodItem);
+		}
 	});
-  
 	// Add the class with the slide-in animation to the updated mealtime result element
 	const mealtimeResultElement = document.getElementById(`${mealTime}Items`);
 	mealtimeResultElement.classList.add('slideIn');
@@ -247,7 +240,7 @@ function addToMealTime(mealTime) {
 	scrollToCategory(mealTime);
 	// Update the currently selected category
 	currentCategory = `${mealTime}Result`;
-  }
+}
 
 function scrollToCategory(category) {
 	const targetCategory = document.getElementById(`${category}Result`);
@@ -274,12 +267,12 @@ function getBorderColor(category) {
 		case "dinner":
 			return "#FF512F";
 		default:
-			return "#000"; // Default border color
+			return "#000";
 	}
 }
 
 function calculateTotalCalories(items) {
-    return items.reduce((total, item) => total + (item.calories * item.count), 0);
+	return items.reduce((total, item) => total + (item.calories * item.count), 0);
 }
 
 function updateSelection() {
@@ -288,10 +281,10 @@ function updateSelection() {
 	const dinnerItemsElement = document.getElementById("dinnerItems");
 	// Keep track of the previous state
 	const prevSelectedItems = {
-		breakfast: [...selectedItems.breakfast],
-		lunch: [...selectedItems.lunch],
-		dinner: [...selectedItems.dinner],
-	};
+    breakfast: JSON.parse(JSON.stringify(selectedItems.breakfast)),
+    lunch: JSON.parse(JSON.stringify(selectedItems.lunch)),
+    dinner: JSON.parse(JSON.stringify(selectedItems.dinner)),
+  	};
 	// Update the breakfastItems element
 	updateMealtimeResult(breakfastItemsElement, selectedItems.breakfast, "breakfast");
 	// Update the lunchItems element
@@ -299,15 +292,9 @@ function updateSelection() {
 	// Update the dinnerItems element
 	updateMealtimeResult(dinnerItemsElement, selectedItems.dinner, "dinner");
 	// Animate the total calorie counts only if the categories have changed
-	if (!arraysEqual(prevSelectedItems.breakfast, selectedItems.breakfast)) {
-		animateTotalCaloriesForMealtime(document.getElementById("breakfastTotalCalories"), selectedItems.breakfast);
-	}
-	if (!arraysEqual(prevSelectedItems.lunch, selectedItems.lunch)) {
-		animateTotalCaloriesForMealtime(document.getElementById("lunchTotalCalories"), selectedItems.lunch);
-	}
-	if (!arraysEqual(prevSelectedItems.dinner, selectedItems.dinner)) {
-		animateTotalCaloriesForMealtime(document.getElementById("dinnerTotalCalories"), selectedItems.dinner);
-	}
+	animateIfChanged(prevSelectedItems.breakfast, selectedItems.breakfast, "breakfastTotalCalories");
+	animateIfChanged(prevSelectedItems.lunch, selectedItems.lunch, "lunchTotalCalories");
+	animateIfChanged(prevSelectedItems.dinner, selectedItems.dinner, "dinnerTotalCalories");
 	// Animate the total calorie counts for each mealtime individually
 	animateTotalCaloriesForMealtime(document.getElementById("breakfastTotalCalories"), selectedItems.breakfast);
 	animateTotalCaloriesForMealtime(document.getElementById("lunchTotalCalories"), selectedItems.lunch);
@@ -327,107 +314,114 @@ function updateSelection() {
 	// Update suggestions based on total calories
 	updateSuggestions(totalCalories);
 }
+// Helper function to animate total calories if the values have changed
+function animateIfChanged(prevItems, currentItems, elementId) {
+  if (!arraysEqual(prevItems, currentItems)) {
+    animateTotalCaloriesForMealtime(document.getElementById(elementId), currentItems);
+  }
+}
 // Helper function to check if two arrays are equal
 function arraysEqual(arr1, arr2) {
 	return JSON.stringify(arr1) === JSON.stringify(arr2);
 }
 
 function updateMealtimeResult(resultElement, items, mealTime) {
-    const listElement = resultElement.querySelector("ul");
-    listElement.innerHTML = "";
-    items.forEach((item) => {
-        const listItem = document.createElement("li");
-        // Create the delete button with the "delete-button" class
-        const deleteButton = document.createElement("button");
-        deleteButton.textContent = "ลบ";
-        deleteButton.className = "delete-button"; // Apply the CSS class
-        deleteButton.addEventListener("click", () => {
-            deleteItemWithAnimation(listItem, item.name, mealTime);
-        });
-        // Display the count along with the item name and image
-        listItem.innerHTML = `${item.count} x <img src="${item.image}" alt="${item.name}"> ${item.name}`;
-        listItem.appendChild(deleteButton);
-        listElement.appendChild(listItem);
-    });
+	const listElement = resultElement.querySelector("ul");
+	listElement.innerHTML = "";
+	items.forEach((item) => {
+		const listItem = document.createElement("li");
+		// Create the delete button with the "delete-button" class
+		const deleteButton = document.createElement("button");
+		deleteButton.textContent = "ลบ";
+		deleteButton.className = "delete-button"; // Apply the CSS class
+		deleteButton.addEventListener("click", () => {
+			deleteItemWithAnimation(listItem, item.name, mealTime);
+		});
+		// Display the count along with the item name and image
+		listItem.innerHTML = `${item.count} x <img src="${item.image}" alt="${item.name}"> ${item.name}`;
+		listItem.appendChild(deleteButton);
+		listElement.appendChild(listItem);
+	});
 }
 
 function deleteItemWithAnimation(listItem, itemName, mealTime) {
-    // Apply a CSS class to initiate the delete animation
-    listItem.classList.add('delete-animation');
-    // Wait for the animation to complete before removing the item from the list
-    listItem.addEventListener('animationend', () => {
-        // Remove the CSS class after the animation completes
-        listItem.classList.remove('delete-animation');
-        // Remove the list item from the DOM
-        listItem.remove();
-        // Remove the item from the selected items array
-        selectedItems[mealTime] = selectedItems[mealTime].filter((item) => item.name !== itemName);
-        // Update the selection and other UI elements
-        updateSelection();
-    });
+	// Apply a CSS class to initiate the delete animation
+	listItem.classList.add('delete-animation');
+	// Wait for the animation to complete before removing the item from the list
+	listItem.addEventListener('animationend', () => {
+		// Remove the CSS class after the animation completes
+		listItem.classList.remove('delete-animation');
+		// Remove the list item from the DOM
+		listItem.remove();
+		// Remove the item from the selected items array
+		selectedItems[mealTime] = selectedItems[mealTime].filter((item) => item.name !== itemName);
+		// Update the selection and other UI elements
+		updateSelection();
+	});
 }
 
 function animateTotalCaloriesForMealtime(totalCaloriesElement, mealItems) {
-	if (mealItems.length === 0) {
-        totalCaloriesElement.textContent = "เพิ่มเมนูอาหารเพื่อคำนวณ";
-        return;
-    }
-    const totalCalories = calculateTotalCalories(mealItems);
-    if (totalCaloriesElement.dataset.isAnimating === "true") {
-        return; // Animation is already in progress
-    }
-    totalCaloriesElement.dataset.isAnimating = "true"; // Set the flag
-    const duration = 500; // Animation duration in milliseconds
-    const frames = 15; // Number of frames
-    const initialFontSize = 14; // Starting font size
-    const maxFontSize = 18; // Maximum font size
-    const fontSizeIncrement = (maxFontSize - initialFontSize) / frames;
-    let currentFontSize = initialFontSize;
-    const increment = totalCalories / (duration / frames);
-    let currentValue = parseFloat(totalCaloriesElement.textContent.match(/\d+/)); // Get the current value
-    const updateValue = () => {
-        if (currentValue < totalCalories) {
-            // Animate only the numerical part of the content
-            totalCaloriesElement.innerHTML = `แคลอรี่ทั้งหมด : <span style="font-size: ${currentFontSize}px;">${Math.round(currentValue).toLocaleString()}</span> กิโลแคลอรี่`;
-
-            currentFontSize += fontSizeIncrement; // Increment font size
-            currentValue += increment;
-            requestAnimationFrame(updateValue);
-        } else {
-            // Animate only the numerical part of the content
-            totalCaloriesElement.innerHTML = `แคลอรี่ทั้งหมด : <span style="font-size: ${maxFontSize}px;">${totalCalories.toLocaleString()}</span> กิโลแคลอรี่`;
-            totalCaloriesElement.dataset.isAnimating = "false"; // Reset the flag when the animation is complete
-        }
-    };
-    updateValue();
+	if(mealItems.length === 0) {
+		totalCaloriesElement.textContent = "เพิ่มเมนูอาหารเพื่อคำนวณ";
+		return;
+	}
+	const totalCalories = calculateTotalCalories(mealItems);
+	if(totalCaloriesElement.dataset.isAnimating === "true") {
+		return; // Animation is already in progress
+	}
+	totalCaloriesElement.dataset.isAnimating = "true"; // Set the flag
+	const duration = 500; // Animation duration in milliseconds
+	const frames = 15; // Number of frames
+	const initialFontSize = 14; // Starting font size
+	const maxFontSize = 18; // Maximum font size
+	const fontSizeIncrement = (maxFontSize - initialFontSize) / frames;
+	let currentFontSize = initialFontSize;
+	const increment = totalCalories / (duration / frames);
+	let currentValue = parseFloat(totalCaloriesElement.textContent.match(/\d+/)); // Get the current value
+	const updateValue = () => {
+		if(currentValue < totalCalories) {
+			// Animate only the numerical part of the content
+			totalCaloriesElement.innerHTML = `แคลอรี่ทั้งหมด : <span style="font-size: ${currentFontSize}px;">${Math.round(currentValue).toLocaleString()}</span> กิโลแคลอรี่`;
+			currentFontSize += fontSizeIncrement; // Increment font size
+			currentValue += increment;
+			requestAnimationFrame(updateValue);
+		}
+		else {
+			// Animate only the numerical part of the content
+			totalCaloriesElement.innerHTML = `แคลอรี่ทั้งหมด : <span style="font-size: ${maxFontSize}px;">${totalCalories.toLocaleString()}</span> กิโลแคลอรี่`;
+			totalCaloriesElement.dataset.isAnimating = "false"; // Reset the flag when the animation is complete
+		}
+	};
+	updateValue();
 }
 
 function animateCounting(element, targetValue) {
-    const duration = 500; // Animation duration in milliseconds
-    const frames = 15; // Number of frames
-    const initialFontSize = 18; // Starting font size
-    const maxFontSize = 26; // Maximum font size
-    const fontSizeIncrement = (maxFontSize - initialFontSize) / frames;
-    // Cubic ease-out easing function
-    const easing = t => 1 - Math.pow(1 - t, 3);
-    const increment = targetValue / (duration / frames);
-    let currentValue = 0;
-    let currentFontSize = initialFontSize;
-    const updateValue = () => {
-        if (currentValue < targetValue) {
-            const easedProgress = easing(currentValue / targetValue);
-            // Use toLocaleString to add a thousand separator
-            element.textContent = Math.round(currentValue).toLocaleString();
-            element.style.fontSize = `${initialFontSize + easedProgress * (maxFontSize - initialFontSize)}px`;
-            currentValue += increment;
-            requestAnimationFrame(updateValue);
-        } else {
-            // Use toLocaleString to add a thousand separator
-            element.textContent = targetValue.toLocaleString();
-            element.style.fontSize = `${maxFontSize}px`;
-        }
-    };
-    updateValue();
+	const duration = 500; // Animation duration in milliseconds
+	const frames = 15; // Number of frames
+	const initialFontSize = 18; // Starting font size
+	const maxFontSize = 26; // Maximum font size
+	const fontSizeIncrement = (maxFontSize - initialFontSize) / frames;
+	// Cubic ease-out easing function
+	const easing = t => 1 - Math.pow(1 - t, 3);
+	const increment = targetValue / (duration / frames);
+	let currentValue = 0;
+	let currentFontSize = initialFontSize;
+	const updateValue = () => {
+		if(currentValue < targetValue) {
+			const easedProgress = easing(currentValue / targetValue);
+			// Use toLocaleString to add a thousand separator
+			element.textContent = Math.round(currentValue).toLocaleString();
+			element.style.fontSize = `${initialFontSize + easedProgress * (maxFontSize - initialFontSize)}px`;
+			currentValue += increment;
+			requestAnimationFrame(updateValue);
+		}
+		else {
+			// Use toLocaleString to add a thousand separator
+			element.textContent = targetValue.toLocaleString();
+			element.style.fontSize = `${maxFontSize}px`;
+		}
+	};
+	updateValue();
 }
 
 function getColorForValue(value) {
@@ -544,10 +538,12 @@ function filterAndSearch(filterType) {
 			}
 			if((filterType === "all" || foodType === filterType) && (foodName.includes(searchQuery) || itemInfoText.includes(searchQuery))) {
 				itemCheckboxDiv.style.display = "block";
-			} else {
+			}
+			else {
 				itemCheckboxDiv.style.display = "none";
 			}
-		} else {
+		}
+		else {
 			// Handle elements without the data-food-type attribute
 			itemCheckboxDiv.style.display = "none";
 		}
