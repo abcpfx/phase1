@@ -600,6 +600,9 @@ label .info {
 #addBreakfast, #addLunch, #addDinner {
 	filter: grayscale(100%);
 }
+#addBreakfast:hover, #addLunch:hover, #addDinner:hover {
+	filter: grayscale(0%);
+}
 /* Remove grayscale filter from focused button */
 #addBreakfast.focused, #addLunch.focused, #addDinner.focused {
 	border-bottom: solid 2px black;
