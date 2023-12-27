@@ -72,7 +72,7 @@ function animateItems() {
 		// Add a class with a delay based on the index
 		setTimeout(function() {
 			item.classList.add('show');
-		}, index * 100); // Adjust the delay as needed
+		}, index * 50); // Adjust the delay as needed
 	});
 }
 // Event listener for scroll
