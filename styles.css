@@ -606,17 +606,16 @@ label .info {
 /* Remove grayscale filter from focused button */
 #addBreakfast.focused, #addLunch.focused, #addDinner.focused {
 	border-bottom: solid 2px black;
-	border-radius: 30px;
 	filter: grayscale(0%);
 }
 /* Style for the "Add to Breakfast" button */
 #addBreakfast {
-    font-size: 0.9em;
+    font-size: 1.25em;
 	overflow: hidden;
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
 	width: 25%;
-	height: 40px;
+	height: 60px;
 	border: none;
 	background-image: linear-gradient(to right, #41a783 0%, #93F9B9 51%, #1a835e 100%);
 	margin: 10px;
@@ -642,12 +641,12 @@ label .info {
 }
 /* Style for the "Add to Lunch" button */
 #addLunch {
-    font-size: 0.9em;
+    font-size: 1.25em;
 	overflow: hidden;
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
 	width: 25%;
-	height: 40px;
+	height: 60px;
 	border: none;
 	background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%);
 	margin: 10px;
@@ -673,12 +672,12 @@ label .info {
 }
 /* Style for the "Add to Dinner" button */
 #addDinner {
-    font-size: 0.9em;
+    font-size: 1.25em;
 	overflow: hidden;
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
 	width: 25%;
-	height: 40px;
+	height: 60px;
 	border: none;
 	background-image: linear-gradient(to right, #FF512F 0%, #F09819 51%, #FF512F 100%);
 	margin: 10px;

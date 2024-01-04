@@ -45,11 +45,11 @@ const items =
     { id: "main044", name: "ก๋วยเตี๋ยวลูกชิ้นหมู", foodType: "main", calories: 400, image: "/items/main044.webp" },
     { id: "main045", name: "ข้าวผัดแกงเขียวหวานไก่", foodType: "main", calories: 480, image: "/items/main045.webp" },
     { id: "main046", name: "ยากิโซบะ", foodType: "main", calories: 400, image: "/items/main046.webp" },
-    { id: "main051", name: "ข้าวหอมมะลิผสมข้าวไรซ์เบอร์รี่ยำอกไก่ย่าง", foodType: "main", calories: 270, image: "/items/main051.webp" },
     { id: "main047", name: "ข้าวไรซ์เบอร์รี่อกไก่ย่างจิ้มแจ่ว", foodType: "main", calories: 250, image: "/items/main047.webp" },
     { id: "main048", name: "ข้าวอบธัญพืชและไก่", foodType: "main", calories: 280, image: "/items/main048.webp" },
     { id: "main049", name: "ข้าวกล้องต้มไก่ทรงเครื่อง", foodType: "main", calories: 150, image: "/items/main049.webp" },
     { id: "main050", name: "ข้าวผัดไส้กรอก", foodType: "main", calories: 380, image: "/items/main050.webp" },
+    { id: "main051", name: "ข้าวหอมมะลิผสมข้าวไรซ์เบอร์รี่ยำอกไก่ย่าง", foodType: "main", calories: 270, image: "/items/main051.webp" },
 
     { id: "main088", name: "ข้าวเหนียวไก่ย่างจิ้มแจ่ว", foodType: "main", calories: 390, image: "/items/main088.webp" },
     { id: "others001", name: "ปีกไก่ย่าง", foodType: "others", calories: 300, image: "/items/others001.webp" },
